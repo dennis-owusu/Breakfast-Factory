@@ -11,6 +11,7 @@ import Category from "./admin/Category"
 import Outlet from "./admin/Outlet"
 import Product from "./admin/Product"
 import Users from "./admin/UsersComp"
+import Orders from "./admin/orders"
 import './index.css'
 import { useEffect, useState } from "react";
 import AdminPrivateRoute from "./components/AdminPrivateRoute";
@@ -55,6 +56,7 @@ function App() {
         <Route path="/admin/Product" element={<Product/>}/>
         <Route path="/admin/Users" element={<Users/>}/>
         <Route path="/verify-payment" element={<VerifyPage/>}/>
+        <Route path="/admin/Orders" element={<Orders/>}/>
        </Routes>
        </BrowserRouter> 
        <ToastContainer 
