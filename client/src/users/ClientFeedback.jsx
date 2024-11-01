@@ -14,7 +14,7 @@ const ClientFeedback = () => {
         <div className='bg-[#FA9302] relative max-w-96 mx-auto mt-14 h-64 rounded-3xl'>
             <p className='text-center text-white text-[20px]'>Enter Feedback</p>
             <div className='flex flex-col justify-center gap-5 items-center'>
-                <input type='textarea' className='px-20 outline-none border-none mt-6 rounded-3xl pb-24 top-10 placeholder:text-center' placeholder='Type here'/>
+                <input type='text' className='px-20 outline-none border-none mt-6 rounded-3xl pb-24 top-10 placeholder:text-center' placeholder='Type here'/>
             <button className='w-56 mx-auto flex justify-center items-center rounded-3xl bg-black text-white bottom-4 py-3'>Submit</button>
             </div>
         </div>
