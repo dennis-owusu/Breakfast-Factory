@@ -13,7 +13,7 @@ import path from 'path';
 /* import paystackRoute from './routes/paystack.route.js' */ 
 import outletRoute from './routes/outlet.route.js'
 dotenv.config()
-
+  
 const PORT = 3000 
 
 const app = express() 

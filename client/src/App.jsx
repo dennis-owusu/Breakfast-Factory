@@ -63,7 +63,6 @@ function App() {
         <Route path="/admin/Outlet" element={<Outlet/>}/>
         <Route path="/admin/Product" element={<Product/>}/>
         <Route path="/admin/Users" element={<Users/>}/>
-        <Route path="/verify-payment" element={<VerifyPage/>}/>
         <Route path="/admin/Orders" element={<Orders/>}/>
        </Routes>
        </BrowserRouter> 
