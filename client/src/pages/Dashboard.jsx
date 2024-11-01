@@ -46,6 +46,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { signoutSuccess } from "../redux/userSlice"
 /* import { IoCartOutline } from "react-icons/io5"; */
 import CartItems from "../admin/CartItems"
+import Orders from "@/admin/orders"
 
 const Dashboard = () => {
   const dispatch = useDispatch()
@@ -465,6 +466,7 @@ toast.error(error.message)
       {/* transactions */}
       {tab === 'transactions' && <Transaction/>}
       {tab === 'cart-items' && <CartItems/>}
+      {tab === 'orders' && <Orders/>}
          {tab === 'dash' && <div>
           <div className="flex items-center">
             <h1 className="text-lg font-semibold md:text-2xl">Inventor</h1>
