@@ -51,7 +51,7 @@ const ClientHome = () => {
                 
                 </div>
             </div>
-                <div className='flex flex-row justify-between mt-1 flex-wrap mr-5'>
+                <div className='flex flex-row  justify-between mt-1 flex-wrap mr-1'>
                     {
                         categoryData.map((category)=>(
                             <div key={category.id} className='flex gap-1 '>
