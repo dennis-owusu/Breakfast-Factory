@@ -16,7 +16,6 @@ import './index.css'
 import { useEffect, useState } from "react";
 import AdminPrivateRoute from "./components/AdminPrivateRoute";
 import OutletSignIn from "./pages/OutletSignIn";
-import VerifyPage from "./admin/VerifyPage";
 import ClientAddress from "./users/ClientAddress";
 import ClientCheckout from "./users/ClientCheckout";
 import ClientHome from "./users/ClientHome";
