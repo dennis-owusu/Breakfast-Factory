@@ -17,6 +17,10 @@ import { useEffect, useState } from "react";
 import AdminPrivateRoute from "./components/AdminPrivateRoute";
 import OutletSignIn from "./pages/OutletSignIn";
 import VerifyPage from "./admin/VerifyPage";
+import ClientAddress from "./users/ClientAddress";
+import ClientCheckout from "./users/ClientCheckout";
+import ClientHome from "./users/ClientHome";
+import ClientLogin from "./users/ClientLogin";
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -29,7 +33,7 @@ function App() {
       setLoading(false)
     }
 
-  }, []);
+  }, [loading]);
     
   return (
       loading ? <div className="yflex ymin-h-screen yitems-center yjustify-center ygap-2"><div className="yflex yjustify-center yitems-center">
@@ -41,7 +45,11 @@ function App() {
       <BrowserRouter>
        <Routes>
         <Route path="/outlet-dashboard" element={<Dashboardout/>}/>
-        <Route path="/" element={<OutletSignIn/>}/>
+        <Route path="/address" element={<ClientAddress/>}/>
+        <Route path="/checkout" element={<ClientCheckout/>}/>
+        <Route path="/home" element={<ClientHome/>}/>
+        <Route path="/" element={<ClientLogin/>}/>
+        <Route path="/sign-in" element={<OutletSignIn/>}/>
         <Route element={<AdminPrivateRoute/>}>
         <Route path="/dashboard" element={<Dashboard/>}/>
         </Route>

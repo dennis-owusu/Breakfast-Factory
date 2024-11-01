@@ -10,7 +10,7 @@ import userRoute from './routes/user.route.js'
 import cashRoute from './routes/cash.route.js'
 import productLogRoute from './routes/productlog.route.js'
 import path from 'path';
-/* import paystackRoute from './routes/paystack.route.js' */
+/* import paystackRoute from './routes/paystack.route.js' */ 
 import outletRoute from './routes/outlet.route.js'
 dotenv.config()
 
