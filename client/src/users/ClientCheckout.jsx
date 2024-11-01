@@ -41,7 +41,7 @@ const ClientCheckout = () => {
         <div className='flex justify-between mt-4 w-[356px] items-center mx-auto bg-[#F7F7F7] py-3 px-5 rounded-3xl'>
           <p className='font-semibold'>Payment</p>
           <p className='flex items-center'>
-          <select className='py-1 px-1 rounded-3xl  bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500'>
+          <select className='py-1 bg-white rounded-3xl flex justify-center mx-auto border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500'>
             <option>momo</option>
             <option>cash</option>
             </select>
