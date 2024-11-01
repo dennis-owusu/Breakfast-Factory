@@ -63,7 +63,7 @@ const ClientCheckout = () => {
         </div>
         </div>
 
-        <div className='flex justify-between mt-4 w-[356px] h-[52px] items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
+        <div className='flex justify-between mt-8  w-[356px] h-[52px] items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
         <button className='text-center font-semibold mx-auto'>Order Now</button>
         </div>
       </div>
