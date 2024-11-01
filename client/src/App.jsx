@@ -20,6 +20,7 @@ import ClientAddress from "./users/ClientAddress";
 import ClientCheckout from "./users/ClientCheckout";
 import ClientHome from "./users/ClientHome";
 import ClientLogin from "./users/ClientLogin";
+import ClientFeedback from "./users/ClientFeedback";
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -46,6 +47,7 @@ function App() {
         <Route path="/outlet-dashboard" element={<Dashboardout/>}/>
         <Route path="/address" element={<ClientAddress/>}/>
         <Route path="/checkout" element={<ClientCheckout/>}/>
+        <Route path="/feedback" element={<ClientFeedback/>}/>
         <Route path="/home" element={<ClientHome/>}/>
         <Route path="/" element={<ClientLogin/>}/>
         <Route path="/sign-in" element={<OutletSignIn/>}/>
