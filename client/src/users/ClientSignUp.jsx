@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux"
-import { signInFailure, signInSuccess } from "../redux/userSlice"
+
 import { toast } from "react-toastify"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
@@ -19,7 +18,7 @@ const ClientSignUp = () => {
   
    const handleSubmit = async(e) => {
     e.preventDefault()
-    if(!formData.username || !formData.email || !formData.password){
+    if(!formData.name || !formData.phoneNumber){
       return toast.error('Please fill out all fields', {
         position: 'top-right'
       })
