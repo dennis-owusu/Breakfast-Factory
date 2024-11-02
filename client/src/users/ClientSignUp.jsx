@@ -64,7 +64,7 @@ const ClientSignUp = () => {
 </defs>
 </svg>
 <div className='flex flex-col justify-center items-center -space-y-20'>
-       <h4 style={{fontFamily:'Poppins', fontWeight:500, fontSize:'24px', lineHeight:'36px'}}>Sign In to your account</h4>
+       <h4 style={{fontFamily:'Poppins', fontWeight:500, fontSize:'24px', lineHeight:'36px'}}>Create an account</h4>
        <form onSubmit={handleSubmit} className='flex w-[90%] flex-col justify-center gap-2 -space-y-5 mt-8 items-center mx-auto py-20'>
         <div className='flex flex-col gap-4 w-full'>
         <input type="text" id="name" value={formData.name} onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full mt-3 rounded-3xl border-2 justify-start flex border-[#FA9302]' placeholder='Your Name'/>
