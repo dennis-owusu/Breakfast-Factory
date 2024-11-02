@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FaAngleDown } from 'react-icons/fa6'
 
 const ClientFeedback = () => {

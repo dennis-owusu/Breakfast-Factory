@@ -3,7 +3,6 @@ import { Button } from '../components/ui/button';
 import { decrementQuantity, incrementQuantity, removeItem, resetCart } from '../redux/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdDelete } from "react-icons/md";
-import Barcode from 'react-barcode';
 import {v4 as uuidv4} from 'uuid'
 import {
   Card,
