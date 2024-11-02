@@ -24,10 +24,10 @@ const CartItems = () => {
   const [productLogData, setProductLogData] = useState([])
   const [myCharge, setMyCharge] = useState(null)
   useEffect(() => {
-    if (getTotalQuantity() === 0) {
+    if (cart.length === 0) {
       navigate('/home');
     }
-  }, [cart, navigate]);
+  }, [cart.length, navigate]);
 
   const navigate = useNavigate();
 
