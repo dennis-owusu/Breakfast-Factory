@@ -134,7 +134,11 @@ const ClientHome = () => {
                                 <div className='py-4  px-4  space-x-6'>
                                     <img className='w-[170px] rounded-3xl h-[141px]' src={product.productImage}/>
                                 </div>
-                                    <p className='mt-1'>{product.productName}</p>
+                                    <p className='montserrat font-semibold'>{product.productName}</p>
+                                    <div className='flex justify-between gap-7 items-center'>
+                                        <p className='montserrat font-semibold'>GHS{product.productPrice}</p>
+                                        <button className='py-1 rounded-3xl px-2 w-full bg-[#FA9302] text-white'>Add to cart</button>
+                                    </div>
                             </div>
                         ))
                     }
