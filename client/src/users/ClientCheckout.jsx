@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import {v4 as uuidv4} from 'uuid'
 
 const ClientCheckout = () => {
+  const [loading, setLoading] = useState(false)
   const {cart, totalPrice} = useSelector((state) =>state.cart)
   const {currentUser} = useSelector((state) => state.user)
   const dispatch = useDispatch();
@@ -233,6 +234,18 @@ const ClientCheckout = () => {
 
   const handleClose = () => setIsOpen(false);
   return (
+
+    loading ?
+    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
     <div className='relative'>
       <div className='w-[90%] pb-10 bg-[#C9C9C9] mx-auto rounded-full top-6 mt-1'>
         <p className='hidden'>jnbsdjnv</p>

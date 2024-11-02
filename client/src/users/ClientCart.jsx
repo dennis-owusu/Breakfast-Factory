@@ -6,10 +6,11 @@ import { MdDelete } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const ClientCart = () => {
     const {cart, totalPrice} = useSelector((state) => state.cart)
+    const [loading, setLoading] = useState(false)
 
     const handleRemoveItem = (item) => {
         dispatch(removeItem(item._id));
@@ -36,6 +37,18 @@ const ClientCart = () => {
 
     const dispatch = useDispatch()
   return (
+
+    loading ?
+    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
     <div className='relative'>
     <div className='w-[90%] pb-10 bg-[#C9C9C9] mx-auto rounded-full top-6 mt-1'>
       <p className='hidden'>jnbsdjnv</p>

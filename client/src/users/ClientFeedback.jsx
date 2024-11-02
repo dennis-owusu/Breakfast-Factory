@@ -1,8 +1,23 @@
 
+import { useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa6'
 
 const ClientFeedback = () => {
+
+    const [loading, setLoading] = useState(false)
   return (
+
+    loading ?
+    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
     <div className='overflow-x-hidden'>
         <div className='flex justify-between items-center mt-5 mx-3 gap-3'>
             <button className='bg-[#FA9302] border-[#FA9302] py-2 text-white px-8 rounded-3xl'>Feedback</button>

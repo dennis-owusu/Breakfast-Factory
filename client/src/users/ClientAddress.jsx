@@ -1,7 +1,22 @@
+import { useState } from "react"
 
 
 const ClientAddress = () => {
+
+    const [loading, setLoading] = useState(false)
   return (
+
+    loading ?
+    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
     <div className='mt-5 mx-5'>
         <div className='flex justify-between'>
             <div style={{width:'186px', fontFamily:'Poppins', letterSpacing: '-0.40799999237060547px'}}>

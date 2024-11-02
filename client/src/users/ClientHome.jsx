@@ -117,6 +117,18 @@ const ClientHome = () => {
 
   return (
     
+    loading ?
+    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
+    
     <div className='overflow-x-hidden relative bg-[#E5E5E5]'>
         <div className='bg-white py-5 rounded-b-3xl shadow-md'>
 

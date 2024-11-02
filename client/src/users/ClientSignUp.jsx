@@ -51,6 +51,18 @@ const ClientSignUp = () => {
     } 
    }
   return (
+
+    loading ?
+    <div className='flex justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
     <div className='relative min-h-screen flex flex-col justify-center items-center'>
       <img className=' h-[60rem] object- md:h-0' src='https://s3-alpha-sig.figma.com/img/30b9/dead/7506ccaf9a42994610ce9e25d9332a51?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FZebicYxmQ-hR-8DhMPqlk1WV5L4wUQXl-jKQhqYhuMq2rCtArAdjlpadKpH2cBUWWtZCfnRSGWOtutdb3QSRZlYmIedQkXATntjBnt8m0AC2F8nMyXcKfbDPz1IUcNe60ev40H8mCECtIrXLoX3YGFO63muQAAxNkRuzHvgzc72g8wcfTOFTiz3SV2BpXo5L67jrav5zt8nhXyi~FpXxjEfJuEuOFpPeQwzBOvtR2EMxjMTZ4dAVg8j51O9wjnmMjBBJ2IRCCNtTiSR0JxhVlByEhgQf4ETZEwFdsoqtpFtQyX9MB-YZOv1iI~NViDbJAU8JVK2TkbEXsA6IMPpUg__'/>
       <div className='absolute top-50% left-50% w-96 mx-5 rounded-2xl bg-white'>
