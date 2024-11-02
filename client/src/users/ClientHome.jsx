@@ -116,7 +116,6 @@ const ClientHome = () => {
   const baseClass = 'text-white';
 
   return (
-
     
     <div className='overflow-x-hidden relative bg-[#E5E5E5]'>
         <div className='bg-white py-5 rounded-b-3xl shadow-md'>
