@@ -9,16 +9,16 @@ const ClientSignUp = () => {
     const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
+    const [formData, setFormData] = useState({ name: '', phoneNumber: '', email: ''});
   
     const handleChange = (e) => {
       setFormData({...formData, [e.target.id]:e.target.value.trim()})
     }
   
-    const [formData, setFormData] = useState({})
   
    const handleSubmit = async(e) => {
     e.preventDefault()
-    if(!formData.name || !formData.phoneNumber){
+    if(!formData.name || !formData.phoneNumber || !formData.email){
       return toast.error('Please fill out all fields', {
         position: 'top-right'
       })
@@ -38,7 +38,7 @@ const ClientSignUp = () => {
         })
       }else{
         navigate('/')
-         toast.success('Business account has been created successfully', {
+         toast.success('Account has been created successfully', {
           position: 'top-right'
         })
         setLoading(false)
@@ -67,11 +67,12 @@ const ClientSignUp = () => {
        <h4 style={{fontFamily:'Poppins', fontWeight:500, fontSize:'24px', lineHeight:'36px'}}>Sign In to your account</h4>
        <form onSubmit={handleSubmit} className='flex w-[90%] flex-col justify-center gap-2 -space-y-5 mt-8 items-center mx-auto py-20'>
         <div className='flex flex-col gap-4 w-full'>
-        <input onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full mt-3 rounded-3xl border-2 justify-start flex border-[#FA9302]' placeholder='Your Name'/>
-        <input onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full rounded-3xl border-2 border-[#FA9302]' placeholder='Phone Number'/>
+        <input type="text" id="name" value={formData.name} onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full mt-3 rounded-3xl border-2 justify-start flex border-[#FA9302]' placeholder='Your Name'/>
+        <input type="text" id="email" value={formData.email} onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full mt-3 rounded-3xl border-2 justify-start flex border-[#FA9302]' placeholder='Your Email'/>
+        <input type="number" value={formData.phoneNumber} id="phoneNumber" onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full rounded-3xl border-2 border-[#FA9302]' placeholder='Phone Number'/>
         </div>
         <div className='w-full'>
-          <button disabled={loading} type="submit" className='bg-[#FA9302] text-white mt-6 mb-5 rounded-3xl py-3 w-full text-center mx-auto'>Continue</button>
+          <button type="submit" className='bg-[#FA9302] text-white mt-6 mb-5 rounded-3xl py-3 w-full text-center mx-auto'>Continue</button>
         </div>
         <div className="flex justify-between montserrat">
           <p>Have an account?</p>

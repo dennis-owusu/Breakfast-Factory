@@ -6,7 +6,9 @@ export const transaction = async (req, res, next) => {
   try {
     const { 
       referenceId, 
-      email, 
+      name, 
+      phoneNumber,
+      email,
       status, 
       method, 
       amount, 
@@ -20,6 +22,8 @@ export const transaction = async (req, res, next) => {
     // Create a new transaction
     const newTransaction = new Transaction({
       referenceId: typeof referenceId === 'object' && referenceId.reference ? referenceId.reference : String(referenceId),
+      name,
+      phoneNumber,
       email,
       status,
       method,

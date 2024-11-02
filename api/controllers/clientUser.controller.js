@@ -1,15 +1,16 @@
 import ClientUser from "../models/clientUser.model.js";
-
+import jwt from 'jsonwebtoken';
 
 export const createClient = async (req, res, next) => {
 
-    const {name, phoneNumber} = req.body; 
-    if(name === '' || phoneNumber === ''){
+    const {name, phoneNumber, email} = req.body; 
+    if(name === '' || phoneNumber === '' || email === '') {
        return next(errorHandler(401, 'All fields are required'))
     }
-    const newClientUser = await new ClientUser({
+    const newClientUser = new ClientUser({
         name,
         phoneNumber,
+        email
     })
     try {
         await newClientUser.save() 
@@ -21,12 +22,12 @@ export const createClient = async (req, res, next) => {
 }
 export const loginClient = async (req, res, next) => {
 
-    const {name, phoneNumber} = req.body
-    if(name === '' || phoneNumber === '' || !name || !phoneNumber){
+    const {name, phoneNumber, email} = req.body
+    if(name === '' || phoneNumber === '' || email === '' || !name || !phoneNumber || !email){
         return next(errorHandler(501, 'All fields are required')) 
     }
     
-    const validUser = await ClientUser.findOne({name: name})
+    const validUser = await ClientUser.findOne({email: email})
     if(!validUser){
         return next(errorHandler(403, 'Incorrect credentials'))
     }
@@ -36,7 +37,7 @@ export const loginClient = async (req, res, next) => {
     }
 
     const token = jwt.sign(
-        { id: validPhoneNumber._id, },
+        { id: validUser._id, },
         process.env.JWT_SECRET
       );
   

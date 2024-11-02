@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import express from 'express';
+import express from 'express'; 
 import cors from 'cors';
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
@@ -13,7 +13,7 @@ import clientUserRoute from './routes/clientUser.route.js'
 import path from 'path';
 /* import paystackRoute from './routes/paystack.route.js' */ 
 import outletRoute from './routes/outlet.route.js'
-dotenv.config()
+dotenv.config() 
   
 const PORT = 3000  
 

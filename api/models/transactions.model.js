@@ -14,10 +14,17 @@ const transactionSchema = new mongoose.Schema(
       type: String, 
       default: null,
     },
-  
     email: {
       type: String,
       required: true,
+    },
+    phoneNumber: {
+      type: Number,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true
     },
     status: {
       type: String,

@@ -43,7 +43,9 @@ const ClientCheckout = () => {
          headers:{'Content-Type': 'application/json'},
          body:JSON.stringify({
           referenceId,
-          email:currentUser.email,
+          phoneNumber:currentUser.phoneNumber,
+          email: currentUser.email,
+          name: currentUser.name,
           amount:totalPrice,
           method:'CASH',
           status: 'success',
@@ -96,6 +98,7 @@ const ClientCheckout = () => {
   
   const config = {
     reference: referenceId,
+    phoneNumber: currentUser.phoneNumber,
     email: currentUser.email,
     amount: finalAmount * 100,
     currency: 'GHS',
@@ -116,7 +119,9 @@ const ClientCheckout = () => {
               },
               body: JSON.stringify({
                   referenceId: reference,
-                  email: currentUser.phoneNumber,
+                  phoneNumber: currentUser.phoneNumber,
+                  email: currentUser.email,
+                  name: currentUser.name,
                   status: "success",
                   method: paymentMethod,  // or "Cash" based on your flow
                   cashAmount: paymentMethod === "CASH" ? finalAmount : 0,  // Set cashAmount only if paymentMethod is Cash
@@ -198,7 +203,9 @@ const ClientCheckout = () => {
         },
         body: JSON.stringify({
           referenceId,
-          email: currentUser.email,
+          phoneNumber: currentUser.phoneNumber,
+          email:currentUser.email,
+          name: currentUser.name,
           status: "failed",
           method: "MOMO",
           amount: totalPrice,
