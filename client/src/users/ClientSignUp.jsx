@@ -69,7 +69,7 @@ const ClientSignUp = () => {
         <div className='flex flex-col gap-4 w-full'>
         <input type="text" id="name" value={formData.name} onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full mt-3 rounded-3xl border-2 justify-start flex border-[#FA9302]' placeholder='Your Name'/>
         <input type="text" id="email" value={formData.email} onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full mt-3 rounded-3xl border-2 justify-start flex border-[#FA9302]' placeholder='Your Email'/>
-        <input type="number" value={formData.phoneNumber} id="phoneNumber" onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full rounded-3xl border-2 border-[#FA9302]' placeholder='Phone Number'/>
+        <input type="text" value={formData.phoneNumber} id="phoneNumber" onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full rounded-3xl border-2 border-[#FA9302]' placeholder='Phone Number'/>
         </div>
         <div className='w-full'>
           <button type="submit" className='bg-[#FA9302] text-white mt-6 mb-5 rounded-3xl py-3 w-full text-center mx-auto'>Continue</button>
