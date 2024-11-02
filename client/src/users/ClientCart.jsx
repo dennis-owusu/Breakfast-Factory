@@ -98,7 +98,7 @@ const ClientCart = () => {
   <div className=" mt-4 w-[95%] h-[52px] mb-10 flex justify-center self-center mx-auto items-center bg-black text-white py-4 rounded-3xl">
     <div className="flex justify-between gap-44 items-center w-full px-4">
       <p className="text-xl font-medium">₵{totalPrice.toFixed(2)}</p>
-      <button className="bg-white py-2 px-6 rounded-3xl text-black">Pay Now</button>
+      <button className="bg-white py-2 px-6 rounded-3xl text-black flex justify-center items-center gap-1">Pay <span>Now</span></button>
     </div>
   </div>
     </div>
