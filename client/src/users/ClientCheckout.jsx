@@ -13,7 +13,7 @@ const ClientCheckout = () => {
       <div className='w-[90%] pb-10 bg-[#C9C9C9] mx-auto rounded-full top-6 mt-1'>
         <p className='hidden'>jnbsdjnv</p>
       </div>
-      <div className='absolute bg-white  top-3 rounded-3xl w-full border-t-[1px] border-gray-500 z-50 shadow-2xl pb-[8rem] h-full'>
+      <div className='absolute bg-white  top-3 rounded-3xl w-full border-gray-500 z-50 shadow-2xl pb-[8rem] h-full'>
         <div className='relative mt-8'>
           <h3 className='text-xl font-medium flex ml-6' style={{fontFamily:'Montserrat', fontSize:'22px'}}>Checkout</h3>
 
