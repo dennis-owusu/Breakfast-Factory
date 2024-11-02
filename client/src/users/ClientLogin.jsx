@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { signInFailure, signInSuccess } from "../redux/userSlice"
 import { toast } from "react-toastify"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 
@@ -75,7 +75,11 @@ const ClientLogin = () => {
         <input onChange={handleChange} className='py-3 outline-none px-3 active:border-[#FA9302] w-full rounded-3xl border-2 border-[#FA9302]' placeholder='Phone Number'/>
         </div>
         <div className='w-full'>
-          <button disabled={loading} type="submit" className='bg-[#FA9302] text-white mt-6 rounded-3xl py-3 w-full text-center mx-auto'>Continue</button>
+          <button disabled={loading} type="submit" className='bg-[#FA9302] text-white mt-6 mb-5 rounded-3xl py-3 w-full text-center mx-auto'>Continue</button>
+        </div>
+        <div className="flex justify-between montserrat">
+          <p>Do not have an account?</p>
+          <Link className="text-blue-500 underline" to='/create-account'>Create account</Link>
         </div>
        </form>
 
