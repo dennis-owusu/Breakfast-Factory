@@ -4,10 +4,12 @@ import { FaCheckSquare } from 'react-icons/fa';
 import { HiOutlineHome } from 'react-icons/hi';
 import { IoMdSettings } from "react-icons/io";
 import { MdFavoriteBorder, MdFeedback, MdOutlineShoppingBag } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const ClientHome = () => {
 
     const [activeIcon, setActiveIcon] = useState(null);
+    const navigate = useNavigate()
 
     const handleIconClick = (icon) => {
         setActiveIcon((prevIcon) => (prevIcon === icon ? null : icon));
@@ -28,7 +30,7 @@ const ClientHome = () => {
                 <p className='text-sm'>Delivery address</p>
                 <h3 className='font-semibold text-[18px]'>Boys Hostel</h3>
             </div>
-            <div className='relative bg-[#D9D9D9] px-3 py-3 rounded-full'>
+            <div onClick={()=>(navigate('/feedback'))} className='relative bg-[#D9D9D9] px-3 py-3 rounded-full'>
             <MdFeedback className='w-6 h-6'/>
             <div className='bg-[#FA9302] absolute -right-0 -top-1 py-2 px-2 rounded-full'></div>
             </div>

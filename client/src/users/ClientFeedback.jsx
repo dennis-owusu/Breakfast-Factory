@@ -3,18 +3,18 @@ import { FaAngleDown } from 'react-icons/fa6'
 
 const ClientFeedback = () => {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
         <div className='flex justify-between items-center mt-5 mx-3 gap-3'>
             <button className='bg-[#FA9302] py-2 text-white px-8 rounded-3xl'>Feedback</button>
             <button className='border-2 border-[#FA9302] py-2 px-8 rounded-3xl'>Reviews</button>
             <button className='border-2 border-[#FA9302] py-2 px-8 rounded-3xl'>Ratings</button>
         </div>
-        <h2 className='font-medium text-[20px] mt-6 text-center' style={{fontFamily:'Montserrat'}}>Great To Hear From You</h2>
+        <h2 className='font-medium text-[20px] mt-6 text-center montserrat'>Great To Hear From You</h2>
 
-        <div className='bg-[#FA9302] relative max-w-96 mx-auto mt-14 h-64 rounded-3xl'>
+        <div className='bg-[#FA9302] relative max-w-96 mx-auto mt-14 h-[18rem] rounded-3xl'>
             <p className='text-center text-white text-[20px]'>Enter Feedback</p>
             <div className='flex flex-col justify-center gap-5 items-center'>
-                <input type='text' className='px-20 outline-none border-none mt-6 rounded-3xl pb-24 top-10 placeholder:text-center' placeholder='Type here'/>
+                <textarea type='text' className='px-20 outline-none border-none mt-6 rounded-3xl pb-24 top-10 placeholder:text-center' placeholder='Type here'/>
             <button className='w-56 mx-auto flex justify-center items-center rounded-3xl bg-black text-white bottom-4 py-3'>Submit</button>
             </div>
         </div>
