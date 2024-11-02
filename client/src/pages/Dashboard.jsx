@@ -469,7 +469,7 @@ toast.error(error.message)
       {tab === 'orders' && <Orders/>}
          {tab === 'dash' && <div>
           <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">Inventor</h1>
+            <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
           </div>
           <div
             className="flex items-center rounded-lg shadow-sm"

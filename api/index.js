@@ -9,6 +9,7 @@ import transactionRoute from './routes/transaction.route.js'
 import userRoute from './routes/user.route.js'
 import cashRoute from './routes/cash.route.js'
 import productLogRoute from './routes/productlog.route.js'
+import clientUserRoute from './routes/clientUser.route.js'
 import path from 'path';
 /* import paystackRoute from './routes/paystack.route.js' */ 
 import outletRoute from './routes/outlet.route.js'
@@ -39,6 +40,7 @@ app.use('/api/auth', userRoute)
 app.use('/api/auth', outletRoute)
 app.use('/api/route', cashRoute)
 app.use('/api/route', productLogRoute)
+app.use('/api/route', clientUserRoute)
 /* app.use('/api/route', paystackRoute) */
 
 app.use(express.static(path.join(__dirname, '/client/dist')));

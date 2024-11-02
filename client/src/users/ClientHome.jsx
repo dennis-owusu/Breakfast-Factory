@@ -1,12 +1,48 @@
 import { Data } from '../data/data';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaCheckSquare } from 'react-icons/fa';
 import { HiOutlineHome } from 'react-icons/hi';
 import { IoMdSettings } from "react-icons/io";
 import { MdFavoriteBorder, MdFeedback, MdOutlineShoppingBag } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ClientHome = () => {
+
+    const [loading, setLoading] = useState(false)
+    const [categoryData, setCategoryData] = useState([])
+    const [allProducts, setAllProducts] = useState([])
+
+    useEffect(() => {
+
+        const fetchCategory = async () => {
+            if(loading){
+                setLoading(false)
+            }
+            setLoading(true); // Set loading to true before fetching
+            try {
+              const res = await fetch("/api/route/allcategories", {
+                method: "GET",
+              });
+              const data = await res.json();
+              if (res.ok) {
+                setCategoryData(data.allCategory.reverse());
+              } else {
+                toast.error(data.message, {
+                  position: "top-right",
+                });
+              }
+            } catch (error) {
+              toast.error("An error occurred while fetching categories", {
+                position: "top-right",
+              });
+            } finally {
+              setLoading(false);
+            }
+          };
+
+          fetchCategory()
+    }, [])
 
     const [activeIcon, setActiveIcon] = useState(null);
     const navigate = useNavigate()
@@ -15,9 +51,29 @@ const ClientHome = () => {
         setActiveIcon((prevIcon) => (prevIcon === icon ? null : icon));
       };
 
+      useEffect(() => {
+        const fetchAllProducts = async () => {
+          setLoading(true);
+    
+          try {
+            const res = await fetch("/api/route/allproducts");
+            const data = await res.json();
+            if (res.ok) {
+              setAllProducts(data.products.reverse());
+            }
+          } catch (error) {
+            toast.error('An error occurred while fetching products, check your internet connection')
+          } finally {
+            setLoading(false); 
+          }
+        };
+    
+        fetchAllProducts();
+      }, []);
+
   const activeClass = 'text-[#FA9302]'; // Style for active icon
   const baseClass = 'text-white';
-    const categoryData = Data
+    const categories = Data
   return (
     <div className='overflow-x-hidden relative bg-[#E5E5E5]'>
         <div className='bg-white py-5 rounded-b-3xl shadow-md'>
@@ -49,17 +105,17 @@ const ClientHome = () => {
         <section className=''>
             <div>
                 <div className='flex justify-between mx-3 items-center'>
-                <h2 className='font-medium mt-6 text-[25px]' style={{fontFamily:'Poppins'}}>Categories</h2>
+                <h2 className='font-medium mt-6 text-[25px]' style={{fontFamily:'Poppins'}}>Top products</h2>
                 
                 </div>
             </div>
                 <div className='flex flex-row  justify-between mt-1 flex-wrap mr-1'>
                     {
-                        categoryData.map((category)=>(
-                            <div key={category.id} className='flex gap-1 '>
+                        allProducts.slice(0, 5).map((product)=>(
+                            <div key={product._id} className='flex gap-1 '>
                                 <div className='flex flex-col items-center'>
-                              <img className='w-[65px] h-[65px] rounded-full' src={category.image}/>
-                              <p>{category.category}</p>
+                              <img className='w-[65px] h-[65px] rounded-full' src={product.productImage}/>
+                              <p>{product.productName}</p>
                                 </div>
                             </div>
                         ))
@@ -73,12 +129,12 @@ const ClientHome = () => {
                 <h2 style={{fontFamily:'Poppins'}} className='flex font-medium text-[25px] ml-5 justify-start items-center'>Best Seller</h2>
                 <div className='grid grid-cols-2 items-center space-x-6 mt-3 space-y-3'>
                     {
-                        categoryData.map((category)=>(
-                            <div key={category.id} className=' flex flex-col justify-center items-center'>
+                        allProducts.map((product)=>(
+                            <div key={product.id} className=' flex flex-col justify-center items-center'>
                                 <div className='py-4  px-4  space-x-6'>
-                                    <img className='w-[170px] rounded-3xl h-[141px]' src={category.image}/>
+                                    <img className='w-[170px] rounded-3xl h-[141px]' src={product.productImage}/>
                                 </div>
-                                    <p className='mt-1'>{category.category}</p>
+                                    <p className='mt-1'>{product.productName}</p>
                             </div>
                         ))
                     }
