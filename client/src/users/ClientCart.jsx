@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const ClientCart = () => {
+    const {cart, totalPrice} = useSelector((state) => state.cart)
 
     const handleRemoveItem = (item) => {
         dispatch(removeItem(item._id));
@@ -17,10 +18,11 @@ const ClientCart = () => {
       const navigate = useNavigate()
 
       useEffect(() => {
-        if (getTotalQuantity() === 0) {
-          navigate('/home');
+        if (cart.length === 0) {
+            
+          return navigate('/home');
         }
-      }, [navigate]);
+      }, [cart.length, navigate]);
     
 
 
@@ -32,7 +34,6 @@ const ClientCart = () => {
         navigate(-1); // Goes back to the previous page
       };
 
-    const {cart, totalPrice} = useSelector((state) => state.cart)
     const dispatch = useDispatch()
   return (
     <div className='relative'>
@@ -86,26 +87,25 @@ const ClientCart = () => {
           ))}
         
         </div>
-    </div>
-
-    <div className="">
-  <div className="fixed bottom-28 left-1/2 transform -translate-x-1/2 mt-4 w-[95%] h-[52px] flex justify-center items-center bg-black text-white py-4 rounded-3xl">
+  <div className=" w-[95%] h-[52px] flex justify-center self-center mx-auto mt-10 items-center bg-black text-white py-4 rounded-3xl">
     <div className="flex justify-between gap-44 items-center w-full px-4">
       <p className="text-xl font-medium flex gap-1">Total <span>Quantity</span></p>
       <button className="bg-white py-2 px-6 rounded-3xl font-medium text-xl text-black">{getTotalQuantity()}</button>
     </div>
   </div>
-</div>
-    <div className="">
-  <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 mt-4 w-[95%] h-[52px] flex justify-center items-center bg-black text-white py-4 rounded-3xl">
+
+  
+  <div className=" mt-4 w-[95%] h-[52px] mb-10 flex justify-center self-center mx-auto items-center bg-black text-white py-4 rounded-3xl">
     <div className="flex justify-between gap-44 items-center w-full px-4">
       <p className="text-xl font-medium">₵{totalPrice.toFixed(2)}</p>
       <button className="bg-white py-2 px-6 rounded-3xl text-black">Pay Now</button>
     </div>
   </div>
-</div>
+    </div>
 
-  </div>
+  
+</div>
+ 
   )
 }
 
