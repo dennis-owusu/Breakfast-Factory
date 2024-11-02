@@ -5,7 +5,7 @@ const ClientFeedback = () => {
   return (
     <div className='overflow-x-hidden'>
         <div className='flex justify-between items-center mt-5 mx-3 gap-3'>
-            <button className='bg-[#FA9302] py-2 text-white px-8 rounded-3xl'>Feedback</button>
+            <button className='bg-[#FA9302] border-[#FA9302] py-2 text-white px-8 rounded-3xl'>Feedback</button>
             <button className='border-2 border-[#FA9302] py-2 px-8 rounded-3xl'>Reviews</button>
             <button className='border-2 border-[#FA9302] py-2 px-8 rounded-3xl'>Ratings</button>
         </div>

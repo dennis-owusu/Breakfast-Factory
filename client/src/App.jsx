@@ -21,6 +21,7 @@ import ClientCheckout from "./users/ClientCheckout";
 import ClientHome from "./users/ClientHome";
 import ClientLogin from "./users/ClientLogin";
 import ClientFeedback from "./users/ClientFeedback";
+import ClientCart from "./users/ClientCart";
 
 function App() {
   const [loading, setLoading] = useState(false)
@@ -45,6 +46,7 @@ function App() {
       <BrowserRouter>
        <Routes>
         <Route path="/outlet-dashboard" element={<Dashboardout/>}/>
+        <Route path="/cart-page" element={<ClientCart/>}/>
         <Route path="/address" element={<ClientAddress/>}/>
         <Route path="/checkout" element={<ClientCheckout/>}/>
         <Route path="/feedback" element={<ClientFeedback/>}/>

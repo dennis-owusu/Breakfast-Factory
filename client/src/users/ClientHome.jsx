@@ -116,6 +116,8 @@ const ClientHome = () => {
   const baseClass = 'text-white';
 
   return (
+
+    
     <div className='overflow-x-hidden relative bg-[#E5E5E5]'>
         <div className='bg-white py-5 rounded-b-3xl shadow-md'>
 
@@ -171,7 +173,7 @@ const ClientHome = () => {
                 <div className='grid grid-cols-2 items-center space-x-6 mt-3 space-y-3'>
                     {
                         allProducts.map((product)=>(
-                            <div key={product.id} className=' flex flex-col justify-center items-center'>
+                            <div key={product._id} className=' flex flex-col justify-center items-center'>
                                 <div className='py-4  px-4  space-x-6'>
                                     <img className='w-[170px] rounded-3xl h-[141px]' src={product.productImage}/>
                                 </div>
@@ -222,7 +224,11 @@ const ClientHome = () => {
 
       <MdOutlineShoppingBag
         className={`w-[25px] h-[25px] `}
-        onClick={() => handleIconClick('bag')}
+        onClick={() =>{  
+            handleIconClick('bag')
+            navigate('/cart-page')
+        }
+        }
       />
       <p className='text-sm'>Cart</p>
        <p className="absolute top-[-3px] right-[-7px] bg-[#FA9302] rounded-full py-[9px] text-xs px-[9px] text-white w-4 h-4 flex items-center justify-center">{getTotalQuantity() || 0}</p>
