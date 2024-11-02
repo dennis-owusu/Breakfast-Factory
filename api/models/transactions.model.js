@@ -20,7 +20,7 @@ const transactionSchema = new mongoose.Schema(
     },
     phoneNumber: {
       type: Number,
-      required: true,
+      required: false,
     },
     name: {
       type: String,
