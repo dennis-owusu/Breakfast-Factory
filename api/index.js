@@ -41,7 +41,7 @@ app.use('/api/auth', outletRoute)
 app.use('/api/route', cashRoute)
 app.use('/api/route', productLogRoute)
 app.use('/api/route', clientUserRoute)
-/* app.use('/api/route', paystackRoute) */
+/* app.use('/api/route', paystackRoute) */   
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 

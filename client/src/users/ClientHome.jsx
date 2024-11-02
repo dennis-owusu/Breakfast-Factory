@@ -225,7 +225,12 @@ const ClientHome = () => {
         className={`w-[25px] h-[25px] `}
         onClick={() =>{  
             handleIconClick('bag')
-            navigate('/cart-page')
+            if(cart.length === 0){
+                toast.error('Cart is empty')
+            }else{
+
+                navigate('/cart-page')
+            }
         }
         }
       />
