@@ -114,7 +114,6 @@ const CartItems = () => {
     });
 
     const logData = await productLogRes.json();
-    console.log("Product log response:", logData); // Log server response for debugging
 
     if (!productLogRes.ok) {
         throw new Error(logData.message || 'Failed to create product logs.');
@@ -132,7 +131,7 @@ const CartItems = () => {
         })
        }
      } catch (error) {
-       console.log(error)
+       toast.error(error)
      }
   }
 
@@ -206,7 +205,6 @@ const CartItems = () => {
         });
 
         const logData = await productLogRes.json();
-        console.log("Product log response:", logData); // Log server response for debugging
 
         if (!productLogRes.ok) {
             throw new Error(logData.message || 'Failed to create product logs.');

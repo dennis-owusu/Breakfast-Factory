@@ -5,8 +5,6 @@ import {v4 as uuidv4} from 'uuid'
 export const createProductLog = async (req, res, next) => {
     const {referenceId, cart} = req.body; // Expecting the cart as an array in the request body
 
-    console.log("Received cart data:", JSON.stringify(cart, null, 2)); // Log incoming cart
-
     // Validate that the cart is an array and not empty
     if (!Array.isArray(cart) || cart.length === 0) {
         return res.status(400).json({ success: false, message: "Cart must be a non-empty array." });
@@ -51,7 +49,6 @@ export const createProductLog = async (req, res, next) => {
         // Respond with the created product log
         res.status(201).json({ success: true, data: savedProductLog });
     } catch (error) {
-        console.error("Error saving product log:", error); // Log the error
         next(error); // Pass the error to the error handler
     }
 };
