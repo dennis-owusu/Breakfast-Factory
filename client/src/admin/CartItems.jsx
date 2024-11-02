@@ -23,6 +23,11 @@ const CartItems = () => {
   const [formData, setFormData] = useState({})
   const [productLogData, setProductLogData] = useState([])
   const [myCharge, setMyCharge] = useState(null)
+  useEffect(() => {
+    if (getTotalQuantity() === 0) {
+      navigate('/home');
+    }
+  }, [cart, navigate]);
 
   const navigate = useNavigate();
 
@@ -35,11 +40,6 @@ const CartItems = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
-  useEffect(() => {
-    if (getTotalQuantity() === 0) {
-      navigate('/outlet-dashboard?tab=transactions');
-    }
-  }, [cart, navigate]);
 
 
 
