@@ -5,55 +5,52 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 
-const ClientLogin = () => {
+const ClientSignUp = () => {
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
 
-  const [loading, setLoading] = useState(false)
-
-  const handleChange = (e) => {
-    setFormData({...formData, [e.target.id]:e.target.value.trim()})
-  }
-
-  const [formData, setFormData] = useState({})
-
- const handleSubmit = async(e) => {
-  e.preventDefault()
-  if(!formData.name || !formData.phoneNumber || formData.name === '' || formData.phoneNumber === ''){
-    return toast.error('Please fill out all required fields',{
-      position: 'top-right'
-    })
-  }
-  setLoading(true)
-  try {
-    const res = await fetch('/api/route/login/client-user',{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify(formData)
-    })
-    const data = await res.json()
-    if(data.success === false){
-      dispatch(signInFailure(data.message))
-      toast.error(data.message, {
-        position: 'top-right'
-      })
-      setLoading(false)
-    }else{
-      dispatch(signInSuccess(data))
-      setLoading(false)
-        navigate('/dashboard?tab=dash') 
-      toast.success('Login successfully', {
+    const navigate = useNavigate()
+  
+    const handleChange = (e) => {
+      setFormData({...formData, [e.target.id]:e.target.value.trim()})
+    }
+  
+    const [formData, setFormData] = useState({})
+  
+   const handleSubmit = async(e) => {
+    e.preventDefault()
+    if(!formData.username || !formData.email || !formData.password){
+      return toast.error('Please fill out all fields', {
         position: 'top-right'
       })
     }
-  } catch (error) {
-    toast.error('Something went wrong', {
-      position: 'top-right'
-    })
-    setLoading(false)
-  }
- }
+    setLoading(true)
+    try {
+      const res = await fetch('/api/route/create/client-user',{
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(formData)
+      })
+      const data = await res.json()
+      if(data.success === false){ 
+        setLoading(false)
+        return toast.error(data.message, {
+          position: 'top-right'
+        })
+      }else{
+        navigate('/')
+         toast.success('Business account has been created successfully', {
+          position: 'top-right'
+        })
+        setLoading(false)
+      }
+    } catch (error) {
+      toast.error('Something went wrong...',{
+        position: 'top-right'
+      })
+      setLoading(false)
+    } 
+   }
   return (
     <div className='relative min-h-screen flex flex-col justify-center items-center'>
       <img className=' h-[60rem] object- md:h-0' src='https://s3-alpha-sig.figma.com/img/30b9/dead/7506ccaf9a42994610ce9e25d9332a51?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FZebicYxmQ-hR-8DhMPqlk1WV5L4wUQXl-jKQhqYhuMq2rCtArAdjlpadKpH2cBUWWtZCfnRSGWOtutdb3QSRZlYmIedQkXATntjBnt8m0AC2F8nMyXcKfbDPz1IUcNe60ev40H8mCECtIrXLoX3YGFO63muQAAxNkRuzHvgzc72g8wcfTOFTiz3SV2BpXo5L67jrav5zt8nhXyi~FpXxjEfJuEuOFpPeQwzBOvtR2EMxjMTZ4dAVg8j51O9wjnmMjBBJ2IRCCNtTiSR0JxhVlByEhgQf4ETZEwFdsoqtpFtQyX9MB-YZOv1iI~NViDbJAU8JVK2TkbEXsA6IMPpUg__'/>
@@ -86,4 +83,4 @@ const ClientLogin = () => {
   )
 }
 
-export default ClientLogin
+export default ClientSignUp

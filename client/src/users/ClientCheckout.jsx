@@ -116,7 +116,7 @@ const ClientCheckout = () => {
               },
               body: JSON.stringify({
                   referenceId: reference,
-                  email: currentUser.email,
+                  email: currentUser.phoneNumber,
                   status: "success",
                   method: paymentMethod,  // or "Cash" based on your flow
                   cashAmount: paymentMethod === "CASH" ? finalAmount : 0,  // Set cashAmount only if paymentMethod is Cash
