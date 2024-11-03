@@ -163,13 +163,13 @@ const ClientHome = () => {
                 
                 </div>
             </div>
-                <div className='flex flex-row  justify-between mt-1 flex-wrap mr-1'>
+                <div className='flex flex-row items-center gap-3 mx-auto justify-center mt-1'>
                     {
                         allProducts.slice(0, 5).map((product)=>(
-                            <div key={product._id} className='flex gap-1 '>
-                                <div className='flex flex-col items-center'>
+                            <div key={product._id} className='flex gap-3 '>
+                                <div className='flex flex-col justify-center items-center'>
                               <img className='w-[65px] h-[65px] rounded-full' src={product.productImage}/>
-                              <p>{product.productName}</p>
+                              <p className='text-sm font-light'>{product.productName}</p>
                                 </div>
                             </div>
                         ))
