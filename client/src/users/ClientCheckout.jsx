@@ -270,10 +270,10 @@ const ClientCheckout = () => {
             <div className='flex flex-col '>
 
             <h6 className='text-white text-lg font-medium'>Pick Up</h6>
-            <p className='text-white text-sm font-normal'>discount applied</p>
+            <p className='text-white text-sm font-normal'>Discount Applied</p>
             </div>
           </div>
-          <button className='bg-white py-1 px-3 rounded-2xl'>View all</button>
+          <button></button>
         </div>
         <div className='flex justify-between mt-4 w-[356px] items-center mx-auto bg-[#F7F7F7] py-3 px-5 rounded-3xl'>
           <p className='font-semibold'>Payment</p>
