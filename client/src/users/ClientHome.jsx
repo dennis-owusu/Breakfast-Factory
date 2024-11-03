@@ -118,7 +118,7 @@ const ClientHome = () => {
   return (
     
     loading ?
-    <div className='flex justify-center items-center min-h-screen'>
+    <div className='flex overflow-x-hidden justify-center items-center min-h-screen'>
 
     <div className='div'>
   <span className='span'></span>
