@@ -159,7 +159,10 @@ onClick={() => {
 
 <div  className={`flex flex-col items-center ${activeIcon === 'search' ? activeClass : baseClass}`}>
 <svg className='w-[25px] h-[25px] '
-onClick={() => handleIconClick('search')} width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+ onClick={() =>{ 
+    handleIconClick('search')
+    navigate('/search')
+    }} width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13 3.25H18" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
 <line x1="14.5" y1="6.75" x2="24.5" y2="6.75" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M8.55557 2.08334C4.84298 2.08334 1.83334 5.09298 1.83334 8.80557C1.83334 12.5182 4.84298 15.5278 8.55557 15.5278C12.2682 15.5278 15.2778 12.5182 15.2778 8.80557C15.2778 7.90084 15.0991 7.03786 14.775 6.25H16.7229C16.9752 7.05702 17.1111 7.91542 17.1111 8.80557C17.1111 10.8379 16.4025 12.7047 15.2189 14.1725L21.7315 20.6852C22.0895 21.0432 22.0895 21.6235 21.7315 21.9815C21.3735 22.3395 20.7932 22.3395 20.4352 21.9815L13.9225 15.4689C12.4547 16.6525 10.5879 17.3611 8.55557 17.3611C3.83046 17.3611 0 13.5307 0 8.80557C0 4.08046 3.83046 0.25 8.55557 0.25C11.6063 0.25 14.284 1.8467 15.7987 4.25H13.4988C12.2705 2.91782 10.5105 2.08334 8.55557 2.08334Z" fill="currentColor"/>
