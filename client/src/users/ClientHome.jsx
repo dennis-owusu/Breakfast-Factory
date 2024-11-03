@@ -9,6 +9,19 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ClientHome = () => {
+    const {cart} = useSelector((state)=>state.cart)
+    const dispatch = useDispatch()
+    
+    const [loading, setLoading] = useState(false)
+    const [categoryData, setCategoryData] = useState([])
+    const [allProducts, setAllProducts] = useState([])
+
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    // Filter products based on the selected category
+    const filteredProducts = selectedCategory 
+      ? allProducts.filter(product => product.category === selectedCategory)
+      : allProducts;
 
     const getTotalQuantity = () => {
         let total = 0
@@ -18,12 +31,6 @@ const ClientHome = () => {
         return total
       }
 
-    const {cart} = useSelector((state)=>state.cart)
-    const dispatch = useDispatch()
-
-    const [loading, setLoading] = useState(false)
-    const [categoryData, setCategoryData] = useState([])
-    const [allProducts, setAllProducts] = useState([])
 
     useEffect(() => {
 
@@ -163,10 +170,12 @@ const ClientHome = () => {
                 
                 </div>
             </div>
+
+            {/* Sort product by categories when click on one of these */}
                 <div className='flex flex-row items-center gap-3 mx-auto justify-center mt-1'>
                     {
                         allProducts.slice(0, 5).map((product)=>(
-                            <div key={product._id} className='flex gap-3 '>
+                            <div   onClick={() => setSelectedCategory(product.category)} key={product._id} className='flex gap-3 '>
                                 <div className='flex flex-col justify-center items-center'>
                               <img className='w-[65px] h-[65px] rounded-full' src={product.productImage}/>
                               <p className='text-sm font-light'>{product.productName.slice(0, 15)}</p>
@@ -183,7 +192,7 @@ const ClientHome = () => {
                 <h2 style={{fontFamily:'Poppins'}} className='flex font-medium text-[25px] ml-5 justify-start items-center'>Best Seller</h2>
                 <div className='grid grid-cols-2 items-center space-x-6 mt-3 space-y-3'>
                     {
-                        allProducts.map((product)=>(
+                        filteredProducts.map((product)=>(
                             <div key={product._id} className=' flex flex-col justify-center items-center'>
                                 <div className='py-4  px-4  space-x-6'>
                                     <img className='w-[170px] rounded-3xl h-[141px]' src={product.productImage}/>
