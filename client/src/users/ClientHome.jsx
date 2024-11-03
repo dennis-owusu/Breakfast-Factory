@@ -169,7 +169,7 @@ const ClientHome = () => {
                             <div key={product._id} className='flex gap-3 '>
                                 <div className='flex flex-col justify-center items-center'>
                               <img className='w-[65px] h-[65px] rounded-full' src={product.productImage}/>
-                              <p className='text-sm font-light'>{product.productName}</p>
+                              <p className='text-sm font-light'>{product.productName.slice(0, 15)}</p>
                                 </div>
                             </div>
                         ))
