@@ -226,7 +226,10 @@ const ClientHome = () => {
      <div className='flex flex-col items-center text-[#FA9302]'>
       <HiOutlineHome
         className={`w-[25px] h-[25px] ${activeIcon === 'home' ? 'text-[#FA9302]' : ''}`}
-        onClick={() => handleIconClick('home')}
+        onClick={() => {
+            handleIconClick('home')
+            navigate('/home')
+        }}
       />
       <p className='text-sm'>Home</p>
      </div>
