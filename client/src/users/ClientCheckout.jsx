@@ -284,7 +284,6 @@ const ClientCheckout = () => {
   id="paymentMethod" // Add an id for identification
 >
   <option value='MOMO' id='MOMO'>Momo</option>
-  <option value='CASH' id='CASH'>Cash</option>
 </select>
 
             </p>
