@@ -153,7 +153,7 @@ const ClientHome = () => {
             </div>
         </div>
         <div className='mx-auto flex mt-5'>
-            <input type='search' placeholder='Search' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
+            <input onClick={()=>navigate('/search')} type='search' placeholder='Search' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
         </div>
         <div className='mx-auto py-5 w-[348px] px-2 flex h-[54px] bg-[#FA9302] rounded-xl text-white mt-5'>
             <p className='text-sm flex gap-2 items-center'>Delivery is 70% <FaCheckSquare className='rounded-[100%] font-semibold text-[#fff]'/> cheaper</p>
@@ -197,8 +197,8 @@ const ClientHome = () => {
                                 <div className='py-4  px-4  space-x-6'>
                                     <img className='w-[170px] rounded-3xl h-[141px]' src={product.productImage}/>
                                 </div>
-                                <div className='flex justify-between text-lg space-x-16 items-center'>
-                                    <p className='montserrat font-semibold'>{product.productName}</p>
+                                <div className='flex justify-center text-lg space-x-5 items-center'>
+                                    <p className='montserrat font-medium'>{product.productName}</p>
                                     <MdFavoriteBorder className='text-[#FA9302]'/>
                                 </div>
 
