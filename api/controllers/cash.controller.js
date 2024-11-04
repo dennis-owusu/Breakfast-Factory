@@ -7,14 +7,14 @@ export const cashPayment = async(req, res, next) => {
         
         const newCashPayment = await Cash({
             workingDay,
-            email,
+            email, 
             amount,
             method
         })
 
         await newCashPayment.save()
         res.status(200).json(newCashPayment)
-    } catch (error) {
+    } catch (error) { 
         next(error)
     }
 

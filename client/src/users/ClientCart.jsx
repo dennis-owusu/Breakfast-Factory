@@ -89,7 +89,7 @@ const ClientCart = () => {
     }}>+</button>
                 </div>
                 <img className='md:w-28 w-36 mr-2 rounded-3xl h-32' src={item.productImage} alt={item.productName} />
-                <div className='flex items-center flex-col justify-center'>
+                <div className='flex items-center flex-col'>
                   <p className='text-xl font-normal mb-1'>{item.productName}</p>
                   <p className=' mb-1 bg-[#FA9302] py-0 px-4 rounded-3xl text-white'>₵{item.productPrice}</p>
                 </div>
