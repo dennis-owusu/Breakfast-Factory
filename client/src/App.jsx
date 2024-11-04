@@ -22,7 +22,7 @@ import ClientHome from "./users/ClientHome";
 import ClientLogin from "./users/ClientLogin";
 import ClientFeedback from "./users/ClientFeedback";
 import ClientCart from "./users/ClientCart";
-import ClientSignUp from "./users/ClientSignUp";
+/* import ClientSignUp from "./users/ClientSignUp"; */
 import ClientSearch from "./users/ClientSearch";
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
        <Routes>
         <Route path="/outlet-dashboard" element={<Dashboardout/>}/>
         <Route path="/search" element={<ClientSearch/>}/>
-        <Route path="/create-account" element={<ClientSignUp/>}/>
+   {/*      <Route path="/create-account" element={<ClientSignUp/>}/> */}
         <Route path="/cart-page" element={<ClientCart/>}/>
         <Route path="/address" element={<ClientAddress/>}/>
         <Route path="/checkout" element={<ClientCheckout/>}/>

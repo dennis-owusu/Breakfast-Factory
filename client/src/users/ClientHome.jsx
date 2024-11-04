@@ -2,20 +2,26 @@ import { addToCart } from '../redux/cartSlice';
 import { useEffect, useState } from 'react'
 import { FaCheckSquare } from 'react-icons/fa';
 import { HiOutlineHome } from 'react-icons/hi';
+import { Button, Modal } from "flowbite-react";
+import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
 import { MdFavoriteBorder, MdFeedback, MdOutlineShoppingBag } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
+import { signInFailure, signInSuccess } from '@/redux/userSlice';
+
 
 const ClientHome = () => {
     const {cart} = useSelector((state)=>state.cart)
+    const {currentUser} = useSelector((state) => state.user)
     const dispatch = useDispatch()
-    
     const [loading, setLoading] = useState(false)
+    const [formData, setFormData] = useState({})
+    const [clientUsers, setClientUsers] = useState([])
     const [categoryData, setCategoryData] = useState([])
     const [allProducts, setAllProducts] = useState([])
-
+    const [openModal, setOpenModal] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     // Filter products based on the selected category
@@ -89,6 +95,70 @@ const ClientHome = () => {
     
         fetchAllProducts();
       }, []);
+      useEffect(() => {
+        const fetchAllClientUsers = async () => {
+          setLoading(true);
+    
+          try {
+            const res = await fetch("/api/route/get-all/client-user");
+            const data = await res.json();
+            if (res.ok) {
+              setClientUsers(data.allClientUsers.reverse());
+            }
+          } catch (error) {
+            toast.error('An error occurred while fetching users, check your internet connection')
+          } finally {
+            setLoading(false); 
+          }
+        };
+    
+        fetchAllClientUsers();
+      }, []);
+
+      const handlePhoneNumberChange = (e) =>{
+        setFormData({...formData, phoneNumber:e.target.value})
+      }
+      const handleUpdateClientUserSubmit = async(e) => {
+        e.preventDefault()
+        if(!formData.phoneNumber){
+          return toast.error('Please fill out the required field',{
+            position: 'top-right'
+          })
+        }
+        if(formData.phoneNumber.length < 0){
+          return toast.error('Please enter a correct number',{
+            position: 'top-right'
+          })
+        }
+        setLoading(true)
+        try {
+          const res = await fetch(`/api/route/update/client-user/${currentUser._id}`,{
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+          })
+          const data = await res.json()
+          if(data.success === false){
+            dispatch(signInFailure(data.message))
+            toast.error(data.message, {
+              position: 'top-right'
+            })
+            setLoading(false)
+          }else{
+            dispatch(signInSuccess(data))
+            setLoading(false)
+              setOpenModal(false)
+            toast.success('Login successful', {
+              position: 'top-right'
+            })
+          }
+        } catch (error) {
+          toast.error('Something went wrong', {
+            position: 'top-right'
+          })
+          setLoading(false)
+        }
+       }
 
       const handleCart = async(product)=>{
       
@@ -286,7 +356,27 @@ const ClientHome = () => {
         </div>
         </div>
 
-
+        <Modal show={openModal} size="md" position='center' onClose={() => setOpenModal(false)} popup>
+        <Modal.Header />
+        <Modal.Body>
+          <form onSubmit={handleUpdateClientUserSubmit} className="text-center montserrat">
+            <h1 className='text-xl font-medium'>Enter your phone number</h1>
+            <p className='text-sm text-[#4a4545]'>Please enter your phone number to use this application</p>
+          <div className='mx-auto flex mt-5'>
+            <input value={currentUser.name} onChange={handlePhoneNumberChange} id='name' type='text' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
+        </div>
+          <div className='mx-auto flex mt-5'>
+            <input value={currentUser.email} onChange={handlePhoneNumberChange} id='email' type='text' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
+        </div>
+          <div className='mx-auto flex mt-5'>
+            <input onChange={handlePhoneNumberChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
+        </div>
+        <div className='flex justify-between mt-8 items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
+        <button className='text-center font-semibold mx-auto' disabled={loading} type='submit'>Submit</button>
+        </div>
+          </form>
+        </Modal.Body>
+      </Modal>
     </div>
   )
 }
