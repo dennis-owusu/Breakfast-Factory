@@ -2,14 +2,13 @@ import { addToCart } from '../redux/cartSlice';
 import { useEffect, useState } from 'react'
 import { FaCheckSquare } from 'react-icons/fa';
 import { HiOutlineHome } from 'react-icons/hi';
-import { Button, Modal } from "flowbite-react";
-import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
 import { MdFavoriteBorder, MdFeedback, MdOutlineShoppingBag } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInFailure, signInSuccess } from '@/redux/userSlice';
+import { Modal } from 'flowbite-react';
 
 
 const ClientHome = () => {
@@ -124,7 +123,7 @@ const ClientHome = () => {
         fetchAllClientUsers();
       }, []);
 
-      const handlePhoneNumberChange = (e) =>{
+      const handleClientUserChange = (e) =>{
         setFormData({...formData, [e.target.id]:e.target.value})
     }
     const handleUpdateClientUserSubmit = async(e) => {
@@ -385,7 +384,7 @@ useEffect(() => {
               <input value={currentUser.email} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
             </div>
             <div className='mx-auto flex mt-5'>
-              <input onChange={handlePhoneNumberChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+              <input onChange={handleClientUserChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
             </div>
             <div className='flex justify-between mt-8 items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
               <button className='text-center font-semibold mx-auto' disabled={loading} type='submit'>Submit</button>
