@@ -1,8 +1,8 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { signInSuccess } from "../redux/userSlice"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FcGoogle } from "react-icons/fc"
 import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
 import { app } from '../firebase.config';
@@ -11,11 +11,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ClientLogin = () => {
   const [loading, setLoading] = useState(false)
-
-  
+  const {currentUser} = useSelector((state) => state.user)
+ 
   const auth = getAuth(app)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  useEffect(()=> {
+
+    if(currentUser){
+      navigate('/home')
+    }else{
+      navigate('/')
+    }
+  }, [navigate, currentUser])
+
   const handleGoogleClick = async () =>{
       const provider = new GoogleAuthProvider()
       provider.setCustomParameters({ prompt: 'select_account' })
@@ -28,7 +38,7 @@ const ClientLogin = () => {
               body: JSON.stringify({
                   name: resultsFromGoogle.user.displayName,
                   email: resultsFromGoogle.user.email,
-                  phoneNumber: resultsFromGoogle.user.phoneNumber
+                  phoneNumber: currentUser ? currentUser.phoneNumber : resultsFromGoogle.user.phoneNumber
                 }),
               })
           const data = await res.json()

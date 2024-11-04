@@ -21,13 +21,23 @@ const ClientHome = () => {
     const [clientUsers, setClientUsers] = useState([])
     const [categoryData, setCategoryData] = useState([])
     const [allProducts, setAllProducts] = useState([])
-    const [openModal, setOpenModal] = useState(true);
+    const [openModal, setOpenModal] = useState(false);
+    const navigate = useNavigate()
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     // Filter products based on the selected category
     const filteredProducts = selectedCategory 
       ? allProducts.filter(product => product.category === selectedCategory)
       : allProducts;
+
+      useEffect(()=> {
+
+        if(currentUser){
+          navigate('/home')
+        }else{
+          navigate('/')
+        }
+      }, [navigate, currentUser])
 
     const getTotalQuantity = () => {
         let total = 0
@@ -37,8 +47,8 @@ const ClientHome = () => {
         return total
       }
 
-
-    useEffect(() => {
+      
+      useEffect(() => {
 
         const fetchCategory = async () => {
             if(loading){
@@ -70,16 +80,15 @@ const ClientHome = () => {
     }, [])
 
     const [activeIcon, setActiveIcon] = useState(null);
-    const navigate = useNavigate()
 
     const handleIconClick = (icon) => {
         setActiveIcon((prevIcon) => (prevIcon === icon ? null : icon));
-      };
-
-      useEffect(() => {
-        const fetchAllProducts = async () => {
-          setLoading(true);
+    };
     
+    useEffect(() => {
+        const fetchAllProducts = async () => {
+            setLoading(true);
+            
           try {
             const res = await fetch("/api/route/allproducts");
             const data = await res.json();
@@ -96,11 +105,11 @@ const ClientHome = () => {
         fetchAllProducts();
       }, []);
       useEffect(() => {
-        const fetchAllClientUsers = async () => {
-          setLoading(true);
-    
-          try {
-            const res = await fetch("/api/route/get-all/client-user");
+          const fetchAllClientUsers = async () => {
+              setLoading(true);
+              
+              try {
+                  const res = await fetch("/api/route/get-all/client-user");
             const data = await res.json();
             if (res.ok) {
               setClientUsers(data.allClientUsers.reverse());
@@ -116,14 +125,14 @@ const ClientHome = () => {
       }, []);
 
       const handlePhoneNumberChange = (e) =>{
-        setFormData({...formData, phoneNumber:e.target.value})
-      }
-      const handleUpdateClientUserSubmit = async(e) => {
+        setFormData({...formData, [e.target.id]:e.target.value})
+    }
+    const handleUpdateClientUserSubmit = async(e) => {
         e.preventDefault()
         if(!formData.phoneNumber){
-          return toast.error('Please fill out the required field',{
-            position: 'top-right'
-          })
+            return toast.error('Please fill out the required field',{
+                position: 'top-right'
+            })
         }
         if(formData.phoneNumber.length < 0){
           return toast.error('Please enter a correct number',{
@@ -141,7 +150,7 @@ const ClientHome = () => {
           if(data.success === false){
             dispatch(signInFailure(data.message))
             toast.error(data.message, {
-              position: 'top-right'
+                position: 'top-right'
             })
             setLoading(false)
           }else{
@@ -151,14 +160,21 @@ const ClientHome = () => {
             toast.success('Login successful', {
               position: 'top-right'
             })
-          }
-        } catch (error) {
-          toast.error('Something went wrong', {
-            position: 'top-right'
-          })
-          setLoading(false)
         }
-       }
+    } catch (error) {
+        toast.error('Something went wrong', {
+            position: 'top-right'
+        })
+        setLoading(false)
+    }
+}
+useEffect(() => {
+  if (currentUser.phoneNumber === null) {
+    setOpenModal(true);
+  }else{
+    setOpenModal(false);
+  }
+}, [currentUser]);
 
       const handleCart = async(product)=>{
       
@@ -355,28 +371,29 @@ const ClientHome = () => {
     </div>
         </div>
         </div>
-
-        <Modal show={openModal} size="md" position='center' onClose={() => setOpenModal(false)} popup>
+        {openModal && (
+      <Modal show={openModal} size="md" position='center' onClose={() => setOpenModal(false)} popup>
         <Modal.Header />
         <Modal.Body>
           <form onSubmit={handleUpdateClientUserSubmit} className="text-center montserrat">
             <h1 className='text-xl font-medium'>Enter your phone number</h1>
             <p className='text-sm text-[#4a4545]'>Please enter your phone number to use this application</p>
-          <div className='mx-auto flex mt-5'>
-            <input value={currentUser.name} onChange={handlePhoneNumberChange} id='name' type='text' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
-        </div>
-          <div className='mx-auto flex mt-5'>
-            <input value={currentUser.email} onChange={handlePhoneNumberChange} id='email' type='text' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
-        </div>
-          <div className='mx-auto flex mt-5'>
-            <input onChange={handlePhoneNumberChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
-        </div>
-        <div className='flex justify-between mt-8 items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
-        <button className='text-center font-semibold mx-auto' disabled={loading} type='submit'>Submit</button>
-        </div>
+            <div className='mx-auto flex mt-5'>
+              <input value={currentUser.name} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+            </div>
+            <div className='mx-auto flex mt-5'>
+              <input value={currentUser.email} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+            </div>
+            <div className='mx-auto flex mt-5'>
+              <input onChange={handlePhoneNumberChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+            </div>
+            <div className='flex justify-between mt-8 items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
+              <button className='text-center font-semibold mx-auto' disabled={loading} type='submit'>Submit</button>
+            </div>
           </form>
         </Modal.Body>
       </Modal>
+    )}
     </div>
   )
 }
