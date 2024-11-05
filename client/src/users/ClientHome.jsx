@@ -7,7 +7,7 @@ import { MdFavoriteBorder, MdFeedback, MdOutlineShoppingBag } from 'react-icons/
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { signInFailure, signInSuccess } from '@/redux/userSlice';
+import { updateFailure, updateSuccess } from '../redux/userSlice';
 import { Modal } from 'flowbite-react';
 
 
@@ -147,13 +147,13 @@ const ClientHome = () => {
           })
           const data = await res.json()
           if(data.success === false){
-            dispatch(signInFailure(data.message))
+            dispatch(updateFailure(data.message))
             toast.error(data.message, {
                 position: 'top-right'
             })
             setLoading(false)
           }else{
-            dispatch(signInSuccess(data))
+            dispatch(updateSuccess(data))
             setLoading(false)
               setOpenModal(false)
             toast.success('Login successful', {
@@ -370,10 +370,10 @@ useEffect(() => {
             <h1 className='text-xl font-medium'>Enter your phone number</h1>
             <p className='text-sm text-[#4a4545]'>Please enter your phone number to use this application</p>
             <div className='mx-auto flex mt-5'>
-              <input value={currentUser.name} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+              <input onChange={handleClientUserChange} value={currentUser.name} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
             </div>
             <div className='mx-auto flex mt-5'>
-              <input value={currentUser.email} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+              <input onChange={handleClientUserChange} value={currentUser.email} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
             </div>
             <div className='mx-auto flex mt-5'>
               <input onChange={handleClientUserChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />

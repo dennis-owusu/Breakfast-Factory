@@ -1,13 +1,83 @@
 
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { Modal } from 'flowbite-react'
+import { signoutSuccess, updateFailure, updateSuccess } from '../redux/userSlice'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const ClientUserProfiles = () => {
+    const {currentUser} = useSelector((state) => state.user)
+    const [openModal, setOpenModal] = useState(false);
+    const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
+    const [formData, setFormData] = useState({})
+    const navigate = useNavigate()
 
     const [clientUsersData, setClientUsersData] = useState([])
     console.log(clientUsersData)
 
-    const {currentUser} = useSelector((state)=> state.user)
+
+    const logoutClientUsers = async () =>{
+            try {
+            const res = await fetch('/api/route/logout/client-user', {
+                method: 'POST',
+            })
+            const data = await res.json()
+            if(res.ok){
+                dispatch(signoutSuccess(data.message))
+                navigate('/')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+        }
+
+    const handleClientUserChange = (e) =>{
+        setFormData({...formData, [e.target.id]:e.target.value})
+    }
+
+    const handleUpdateClientUserSubmit = async(e) => {
+        e.preventDefault()
+        if(!formData.phoneNumber){
+            return toast.error('Please fill out the required field',{
+                position: 'top-right'
+            })
+        }
+        if(formData.phoneNumber.length < 0){
+          return toast.error('Please enter a correct number',{
+            position: 'top-right'
+          })
+        }
+        setLoading(true)
+        try {
+          const res = await fetch(`/api/route/update/client-user/${currentUser._id}`,{
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+          })
+          const data = await res.json()
+          if(data.success === false){
+            dispatch(updateFailure(data.message))
+            toast.error(data.message, {
+                position: 'top-right'
+            })
+            setLoading(false)
+          }else{
+            dispatch(updateSuccess(data))
+            setLoading(false)
+              setOpenModal(false)
+            toast.success('Data updated successfully', {
+              position: 'top-right'
+            })
+        }
+    } catch (error) {
+        toast.error('Something went wrong', {
+            position: 'top-right'
+        })
+        setLoading(false)
+    }
+}
 
     useEffect(()=> {
         const fetchAllClientUsers = async () => {
@@ -99,32 +169,57 @@ const ClientUserProfiles = () => {
  </p>
             </div>
         </div>
-        <div className='border-[1px] bg-[#F7F7F7] space-y-6 mt-16 border-[#999696] w-[90%] px-6 py-5 rounded-3xl'>
+        <div className='border-[1px] bg-[#F7F7F7] mt-16 border-[#999696] w-[90%] px-6 py-5 rounded-3xl'>
+        <form className='space-y-6' onSubmit={handleUpdateClientUserSubmit}>
             <div className='flex flex-col justify-start'>
                 <p>Name</p>
-          <input placeholder='Cloud' className='border-none bg-transparent w-full active:border-none outline-none'/>
+          <input onChange={handleClientUserChange} placeholder='Cloud' className='border-none bg-transparent w-full active:border-none outline-none'/>
             <hr className='border-[#999696]'/>
             </div>
             <div className='flex flex-col justify-start'>
                 <p>Email</p>
-          <input placeholder='cloud@gmail.com' className='border-none bg-transparent w-full active:border-none outline-none'/>
+          <input onChange={handleClientUserChange} placeholder='cloud@gmail.com' className='border-none bg-transparent w-full active:border-none outline-none'/>
             <hr className='border-[#999696]'/>
             </div>
             <div className='flex flex-col justify-start'>
                 <p>My Data</p>
-          <input placeholder='Cloud' className='border-none bg-transparent w-full active:border-none outline-none'/>
+          <input onChange={handleClientUserChange} placeholder='Cloud' className='border-none bg-transparent w-full active:border-none outline-none'/>
             <hr className='border-[#999696]'/>
             </div>
+          
+        </form>
             <div className='flex flex-col mt-5'>
-            <p className='flex text-[#DA0000] justify-start items-center gap-2'>
+            <button onClick={logoutClientUsers} className='flex text-[#DA0000] justify-start items-center gap-2'>
                 <span className='bg-black py-3 px-3 rounded-[6px]'>
                 </span>
             Log Out
-            </p>
+            </button>
           <hr className='border-[#999696] mt-3 mb-10'/>
             </div>
-          
         </div>
+        {openModal && (
+      <Modal show={openModal} size="md" position='center' onClose={() => setOpenModal(false)} popup>
+        <Modal.Header />
+        <Modal.Body>
+          <form onSubmit={handleUpdateClientUserSubmit} className="text-center montserrat">
+            <h1 className='text-xl font-medium'>Enter your phone number</h1>
+            <p className='text-sm text-[#4a4545]'>Please enter your phone number to use this application</p>
+            <div className='mx-auto flex mt-5'>
+              <input onChange={handleClientUserChange} value={currentUser.name} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+            </div>
+            <div className='mx-auto flex mt-5'>
+              <input onChange={handleClientUserChange} value={currentUser.email} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+            </div>
+            <div className='mx-auto flex mt-5'>
+              <input onChange={handleClientUserChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+            </div>
+            <div className='flex justify-between mt-8 items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
+              <button className='text-center font-semibold mx-auto' disabled={loading} type='submit'>Submit</button>
+            </div>
+          </form>
+        </Modal.Body>
+      </Modal>
+    )}
     </div>
   )
 }

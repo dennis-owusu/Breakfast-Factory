@@ -20,7 +20,7 @@ const ClientLogin = () => {
   useEffect(()=> {
 
     if(currentUser){
-      /* navigate('/home') */
+      navigate('/home')
     }else{
       navigate('/')
     }
