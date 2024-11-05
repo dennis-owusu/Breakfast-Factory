@@ -349,15 +349,7 @@ useEffect(() => {
       <p className='text-sm'>Cart</p>
        <p className="absolute top-[-3px] right-[-7px] bg-[#FA9302] rounded-full py-[9px] text-xs px-[9px] text-white w-4 h-4 flex items-center justify-center">{getTotalQuantity() || 0}</p>
 </div>
-<div className={`flex flex-col items-center ${activeIcon === 'favorite' ? 'text-[#FA9302]' : ''}`}>
-
-      <MdFavoriteBorder
-        className={`w-[25px] h-[25px] `}
-        onClick={() => handleIconClick('favorite')}
-      />
-      <p className='text-sm'>Favorites</p>
-</div>
-<div className={`flex flex-col items-center ${activeIcon === 'profile' ? activeClass : baseClass}`}>
+<div onClick={()=>navigate('/profiles')} className={`flex flex-col items-center ${activeIcon === 'profile' ? activeClass : baseClass}`}>
 
       <svg className={`w-[25px] h-[25px] `}
         onClick={() => handleIconClick('profile')} width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">

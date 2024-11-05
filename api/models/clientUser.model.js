@@ -13,7 +13,11 @@ const clientUserSchema = new mongoose.Schema({
     phoneNumber: {
         type: Number,
         required: false
-    }
+    },
+    profilePicture: { 
+        type: String,
+        required: true
+     }
 })
 
 const ClientUser = mongoose.model('ClientUser', clientUserSchema)

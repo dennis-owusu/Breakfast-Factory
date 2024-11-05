@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 
 export const google = async (req, res, next) => {
-    const { email, name, phoneNumber } = req.body;
+    const { email, name, phoneNumber, profilePicture } = req.body;
     try {
       const user = await ClientUser.findOne({ email });
       if (user) {
@@ -22,7 +22,8 @@ export const google = async (req, res, next) => {
         const newUser = new ClientUser({
           name,
           email,
-          phoneNumber
+          phoneNumber,
+          profilePicture
         });
         await newUser.save();
         const token = jwt.sign( 
@@ -61,7 +62,8 @@ export const updateClient = async (req, res, next) => {
           $set: { 
             name: req.body.name,
             email: req.body.email,
-           phoneNumber: req.body.phoneNumber
+           phoneNumber: req.body.phoneNumber,
+           profilePicture: req.body.profilePicture
           },
         },
         { new: true }

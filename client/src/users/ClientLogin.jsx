@@ -20,7 +20,7 @@ const ClientLogin = () => {
   useEffect(()=> {
 
     if(currentUser){
-      navigate('/home')
+      /* navigate('/home') */
     }else{
       navigate('/')
     }
@@ -38,7 +38,8 @@ const ClientLogin = () => {
               body: JSON.stringify({
                   name: resultsFromGoogle.user.displayName,
                   email: resultsFromGoogle.user.email,
-                  phoneNumber: currentUser ? currentUser.phoneNumber : resultsFromGoogle.user.phoneNumber
+                  phoneNumber: resultsFromGoogle.user.phoneNumber,
+                  profilePicture: resultsFromGoogle.user.photoURL
                 }),
               })
           const data = await res.json()
