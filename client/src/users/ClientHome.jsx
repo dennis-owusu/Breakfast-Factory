@@ -221,8 +221,8 @@ useEffect(() => {
     </div>
 :
     
-    <div className='overflow-x-hidden relative bg-[#E5E5E5]'>
-        <div className='bg-white py-5 rounded-b-3xl shadow-md'>
+    <main className='overflow-x-hidden relative bg-[#E5E5E5]'>
+        <section className='bg-white py-5 rounded-b-3xl shadow-md'>
 
         <div className='flex mt-5 justify-between mx-5 items-center'>
             <div className='bg-[#FA9302] w-10 h-10 py-2 rounded-full'>
@@ -243,7 +243,7 @@ useEffect(() => {
         <div className='mx-auto py-5 w-[348px] px-2 flex h-[54px] bg-[#FA9302] rounded-xl text-white mt-5'>
             <p className='text-sm flex gap-2 items-center'>Delivery is 70% <FaCheckSquare className='rounded-[100%] font-semibold text-[#fff]'/> cheaper</p>
         </div>
-        </div>
+        </section>
         
         {/* Bottom section */}
         <div className='mt-4 bg-white border-[1px] shadow-[0px_-5px_10px_rgba(0,0,0,0.1)]  border-gray-50 rounded-3xl w-full h-full'>
@@ -393,7 +393,7 @@ useEffect(() => {
         </Modal.Body>
       </Modal>
     )}
-    </div>
+    </main>
   )
 }
 
