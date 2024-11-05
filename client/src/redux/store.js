@@ -13,6 +13,7 @@ const persistConfig = {
   key: 'root',
   storage,
   version: 1,
+  blacklist: import.meta.env.MODE === 'production' ? ['sensitiveReducer'] : [], // blacklist sensitive data
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -21,6 +22,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
+  devTools: import.meta.env.MODE === 'development', // Enable only in development
 });
 
 export const persistor = persistStore(store);
