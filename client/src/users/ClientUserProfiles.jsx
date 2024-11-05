@@ -173,17 +173,17 @@ const ClientUserProfiles = () => {
         <form className='space-y-6' onSubmit={handleUpdateClientUserSubmit}>
             <div className='flex flex-col justify-start'>
                 <p>Name</p>
-          <input onChange={handleClientUserChange} placeholder='Cloud' className='border-none bg-transparent w-full active:border-none outline-none'/>
+          <input onChange={handleClientUserChange} placeholder={currentUser.name} className='border-none bg-transparent w-full active:border-none outline-none'/>
             <hr className='border-[#999696]'/>
             </div>
             <div className='flex flex-col justify-start'>
                 <p>Email</p>
-          <input onChange={handleClientUserChange} placeholder='cloud@gmail.com' className='border-none bg-transparent w-full active:border-none outline-none'/>
+          <input onChange={handleClientUserChange} placeholder={currentUser.email} className='border-none bg-transparent w-full active:border-none outline-none'/>
             <hr className='border-[#999696]'/>
             </div>
             <div className='flex flex-col justify-start'>
-                <p>My Data</p>
-          <input onChange={handleClientUserChange} placeholder='Cloud' className='border-none bg-transparent w-full active:border-none outline-none'/>
+                <p>Phone Number</p>
+          <input onChange={handleClientUserChange} placeholder={currentUser.phoneNumber} className='border-none bg-transparent w-full active:border-none outline-none'/>
             <hr className='border-[#999696]'/>
             </div>
           
