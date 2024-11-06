@@ -37,6 +37,14 @@ const ClientCheckout = () => {
     setProductLogData({...productLogData, [e.target.id]: e.target.value})
   }
 
+  
+  const getTotalQuantity = () => {
+    let total = 0
+    cart.forEach(item => {
+      total += item.quantity
+    })
+    return total
+  }
   const handleCashPayment = async()=>{
      try {
        const res = await fetch('/api/route/transaction',{
@@ -296,7 +304,7 @@ const ClientCheckout = () => {
        
               <div className='flex mt-10 justify-between items-center'>
               <p className=' font-semibold'>Total Items</p>
-              <p className='bg-[#FA9302] text-white py-1 px-3 rounded-2xl'>{cart.length}</p>
+              <p className='bg-[#FA9302] text-white py-1 px-3 rounded-2xl'>{getTotalQuantity()}</p>
               </div>
         <hr className='mt-5 mb-5 border-t-[1px] border-[#999696] bg-[#999696]'/>
         <div className='flex justify-between mt-6'>

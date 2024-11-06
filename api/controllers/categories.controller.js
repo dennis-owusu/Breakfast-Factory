@@ -12,7 +12,7 @@ export const category = async(req, res, next) => {
         res.json(newCategory)
     } catch (error) {
         next(error)
-    }
+    }   
     
 }  
 
