@@ -76,7 +76,7 @@ const ClientHome = () => {
           };
 
           fetchCategory()
-    }, [loading])
+    }, [])
 
     const [activeIcon, setActiveIcon] = useState(null);
 
