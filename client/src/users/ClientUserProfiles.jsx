@@ -26,6 +26,9 @@ const ClientUserProfiles = () => {
             const data = await res.json()
             if(res.ok){
                 dispatch(signoutSuccess(data.message))
+                toast.success('logout successful', {
+                    position: 'top-center'
+                })
                 navigate('/')
             }
         } catch (error) {
