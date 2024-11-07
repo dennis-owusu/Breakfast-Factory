@@ -63,6 +63,18 @@ const ClientLogin = () => {
  
   return (
 
+    loading ?
+    <div className='flex overflow-x-hidden justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
+
     <div className="min-h-screen flex-col flex justify-center items-center">
 
       <h3 className="text-lg font-semibold">Login with Google</h3>

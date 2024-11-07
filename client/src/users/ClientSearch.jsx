@@ -91,6 +91,18 @@ const ClientSearch = () => {
     );
 
     return (
+
+        loading ?
+        <div className='flex overflow-x-hidden justify-center items-center min-h-screen'>
+    
+        <div className='div'>
+      <span className='span'></span>
+      <span className='span'></span>
+      <span className='span'></span>
+      <span className='span'></span>
+    </div>
+        </div>
+    :
         <div>
             <div className='mx-auto items-center justify-center flex mt-5'>
                 <input

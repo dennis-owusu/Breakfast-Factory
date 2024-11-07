@@ -99,6 +99,18 @@ const ClientUserProfiles = () => {
         fetchAllClientUsers()
     }, [])
   return (
+
+    loading ?
+    <div className='flex overflow-x-hidden justify-center items-center min-h-screen'>
+
+    <div className='div'>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+  <span className='span'></span>
+</div>
+    </div>
+:
     <div className='flex flex-col min-h-screen justify-center items-center'>
         <div className=' rounded-full'>
             <img className='w-28 h-28 rounded-full' src={currentUser.profilePicture}/>
