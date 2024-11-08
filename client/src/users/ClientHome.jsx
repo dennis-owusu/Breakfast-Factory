@@ -256,20 +256,22 @@ useEffect(() => {
                 </div>
             </div>
 
-            {/* Sort product by categories when click on one of these */}
-                <div className='flex flex-row items-center gap-3 mx-auto justify-center mt-1'>
-                    {
-                        allProducts.slice(0, 5).map((product)=>(
-                            <div   onClick={() => setSelectedCategory(product.category)} key={product._id} className='flex gap-3 '>
-                                <div className='flex flex-col justify-center items-center'>
-                              <img className='w-[65px] h-[65px] rounded-full' src={product.productImage}/>
-                              <p className='text-sm font-light'>{product.productName.slice(0, 15)}</p>
-                                </div>
-                            </div>
-                        ))
-                    }
+          {/* Sort products by categories and display each category only once */}
+<div className='flex flex-row items-center gap-3 mx-auto justify-center mt-1'>
+    {
+        // Use a Set to keep track of unique categories
+        [...new Map(allProducts.map(product => [product.category, product])).values()]
+            .slice(0, 5) // Limit to 5 categories
+            .map((product) => (
+                <div onClick={() => setSelectedCategory(product.category)} key={product._id} className='flex gap-3 '>
+                    <div className='flex flex-col justify-center items-center'>
+                        <img className='w-[65px] h-[65px] rounded-full' src={product.productImage} alt={product.productName} />
+                        <p className='text-sm font-light'>{product.productName.slice(0, 15)}</p>
+                    </div>
                 </div>
-
+            ))
+    }
+</div>
         </section>
         {/* Third part */}
         <section className='mt-6'>
