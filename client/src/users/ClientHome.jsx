@@ -273,7 +273,7 @@ useEffect(() => {
     }
 </div>
         </section>
-        {/* Third part */}
+
         <section className='mt-6'>
             <div>
                 <h2 style={{fontFamily:'Poppins'}} className='flex font-medium text-[25px] ml-5 justify-start items-center'>Best Seller</h2>
