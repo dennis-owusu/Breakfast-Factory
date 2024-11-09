@@ -265,8 +265,8 @@ useEffect(() => {
             .map((product) => (
                 <div onClick={() => setSelectedCategory(product.category)} key={product._id} className='flex gap-3 '>
                     <div className='flex flex-col justify-center items-center'>
-                        <img className='w-[65px] h-[65px] rounded-full' src={product.productImage} alt={product.productName} />
-                        <p className='text-sm font-light'>{product.productName.slice(0, 15)}</p>
+                        <img className='w-[65px] h-[65px] rounded-full' src={product.productImage} alt={product.category} />
+                        <p className='text-sm font-light'>{product.category.slice(0, 15)}</p>
                     </div>
                 </div>
             ))
