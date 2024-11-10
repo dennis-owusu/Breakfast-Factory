@@ -168,7 +168,7 @@ const ClientHome = () => {
     }
 }
 useEffect(() => {
-  if (currentUser.phoneNumber === null) {
+  if (currentUser.phoneNumber === null || currentUser.phoneNumber.length < 10) {
     setOpenModal(true);
   }else{
     setOpenModal(false);
@@ -226,7 +226,7 @@ useEffect(() => {
 
         <div className='flex mt-5 justify-between mx-5 items-center'>
             <div className='bg-[#FA9302] w-10 h-10 py-2 rounded-full'>
-            <IoMdSettings className='text-white mx-auto w-6 h-6'/>
+            <IoMdSettings onClick={()=> setOpenModal(true)} className='text-white mx-auto w-6 h-6'/>
             </div>
             <div>
                 <p className='text-sm'>Delivery address</p>
@@ -366,10 +366,12 @@ useEffect(() => {
         </div>
         {openModal && (
       <Modal show={openModal} size="md" position='center' onClose={() => setOpenModal(false)} popup>
-        <Modal.Header />
+        {
+          currentUser.phoneNumber === null ? '' : <Modal.Header />
+        }
         <Modal.Body>
           <form onSubmit={handleUpdateClientUserSubmit} className="text-center montserrat">
-            <h1 className='text-xl font-medium'>Enter your phone number</h1>
+            <h1 className='text-xl font-medium mt-5'>Enter your phone number</h1>
             <p className='text-sm text-[#4a4545]'>Please enter your phone number to use this application</p>
             <div className='mx-auto flex mt-5'>
               <input onChange={handleClientUserChange} value={currentUser.name} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
@@ -378,7 +380,7 @@ useEffect(() => {
               <input onChange={handleClientUserChange} value={currentUser.email} readOnly type='text' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
             </div>
             <div className='mx-auto flex mt-5'>
-              <input onChange={handleClientUserChange} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
+              <input onChange={handleClientUserChange} value={currentUser.phoneNumber && currentUser.phoneNumber} id='phoneNumber' type='number' placeholder='Enter your phone number' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]' />
             </div>
             <div className='flex justify-between mt-8 items-center mx-auto bg-black text-white py-3 px-5 rounded-3xl'>
               <button className='text-center font-semibold mx-auto' disabled={loading} type='submit'>Submit</button>
