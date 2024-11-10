@@ -21,8 +21,9 @@ import { toast } from "react-toastify";
 const Transaction = () => {
   const [loading, setLoading] = useState(false);
   const [allTransaction, setAllTransaction] = useState([]);
-  const [selectedTransaction, setSelectedTransaction] = useState(null); // State to hold the selected transaction
+  /* const [selectedTransaction, setSelectedTransaction] = useState(null); */
 
+  console.log(allTransaction.myCharge)
   const fetchAllTransactions = async () => {
     setLoading(true);
     try {
@@ -66,9 +67,9 @@ const Transaction = () => {
     window.URL.revokeObjectURL(url);
   };
 
-  const handleViewTransaction = (transaction) => {
+ /*  const handleViewTransaction = (transaction) => {
     setSelectedTransaction(transaction); // Set the selected transaction
-  };
+  }; */
 
   return (
     loading ? (
@@ -104,6 +105,7 @@ const Transaction = () => {
               </TableHeader>
               <TableBody>
                 {Array.isArray(allTransaction) && allTransaction.map((transaction) => (
+                  
                   <TableRow key={transaction._id}>
                     <TableCell className="font-medium">{transaction.email}</TableCell>
                     <TableCell>
@@ -115,7 +117,7 @@ const Transaction = () => {
 </Badge>
                     </TableCell>
                     <TableCell className="font-medium">GHS {(transaction.amount - transaction.paystackCharge - transaction.myCharge).toFixed(2)}</TableCell>
-                    <TableCell className="font-medium">{transaction.method === 'momo'? 'MOMO': 'CASH'}</TableCell>
+                    <TableCell className="font-medium">{transaction.method === 'MOMO'? 'MOMO': 'CASH'}</TableCell>
                     <TableCell className="font-medium">
                       {transaction.workingDay ? 
                         new Date(transaction.workingDay).toLocaleString('en-US', {

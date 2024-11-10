@@ -294,7 +294,7 @@ const handleSubmit = async () => {
        <form onSubmit={handleSubmit}>
         
        <Select onValueChange={handleCategoryChange} onClick={(e)=>e.stopPropagation()}>
-                      <SelectTrigger className="w-[180px]">
+                      <SelectTrigger className="w-full">
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>
                       <SelectContent onClick={(e)=>e.stopPropagation()}>
