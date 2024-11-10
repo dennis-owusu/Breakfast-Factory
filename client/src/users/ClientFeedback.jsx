@@ -1,8 +1,15 @@
 
 import { useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa6'
+import { TiArrowBackOutline } from 'react-icons/ti'
+import { useNavigate } from 'react-router-dom'
 
 const ClientFeedback = () => {
+    const navigate = useNavigate()
+
+    const handleBack = () => {
+        navigate(-1)
+    }
 
     const [loading, setLoading] = useState(false)
   return (
@@ -19,7 +26,8 @@ const ClientFeedback = () => {
     </div>
 :
     <div className='overflow-x-hidden'>
-        <div className='flex justify-between items-center mt-5 mx-3 gap-3'>
+    <button className=' bg-[#E5E5E5] py-[14px] m-5 px-4 rounded-full' onClick={()=>handleBack()}><TiArrowBackOutline className='w-5 h-5'/></button>
+        <div className='flex justify-between items-center mt-2 mx-3 gap-3'>
             <button className='bg-[#FA9302] border-[#FA9302] py-2 text-white px-8 rounded-3xl'>Feedback</button>
             <button className='border-2 border-[#FA9302] py-2 px-8 rounded-3xl'>Reviews</button>
             <button className='border-2 border-[#FA9302] py-2 px-8 rounded-3xl'>Ratings</button>
