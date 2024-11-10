@@ -3,6 +3,7 @@ import { decrementQuantity, resetCart } from '../redux/cartSlice';
 import React, { useEffect, useState } from 'react'
 import { FaCheckSquare } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { TiArrowBackOutline } from 'react-icons/ti';
 import { usePaystackPayment } from 'react-paystack';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -240,6 +241,10 @@ const ClientCheckout = () => {
   const initializePayment = usePaystackPayment(config);
 
 
+  const handleBack = () => {
+    navigate(-1); // Goes back to the previous page
+  };
+
   const handleClose = () => setIsOpen(false);
   return (
 
@@ -258,9 +263,10 @@ const ClientCheckout = () => {
       <div className='w-[90%] pb-10 bg-[#C9C9C9] mx-auto rounded-full top-6 mt-1'>
         <p className='hidden'>jnbsdjnv</p>
       </div>
-      <div className='absolute bg-white  top-3 rounded-3xl w-full border-gray-500 z-50 shadow-2xl pb-[8rem] h-full'>
-        <div className='relative mt-8'>
-          <h3 className='text-xl font-medium flex ml-6' style={{fontFamily:'Montserrat', fontSize:'22px'}}>Checkout</h3>
+      <div className='absolute bg-white  top-3 rounded-3xl w-full border-gray-500 z-50 pb-[8rem] h-full'>
+      <button className='absolute bg-[#E5E5E5] py-[14px] m-5 px-4 rounded-full' onClick={()=>handleBack()}><TiArrowBackOutline className='w-5 h-5'/></button>
+      <div className='relative mt-8'>
+          <h3 className='text-xl mt-20 font-medium flex ml-6' style={{fontFamily:'Montserrat', fontSize:'22px'}}>Checkout</h3>
 
         <img className='h-44 mt-5 w-full object-cover' src='https://s3-alpha-sig.figma.com/img/6181/fb65/222e7c5b069cece6a952a8f2fc666472?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=g-u6cHk-651Rsjq3WI-d9X0X5bdmQdvgnoQUWSAsNLMPWkBQM7vqYwCZzSoL2l6a-AMNGgZVrAhLycf0qtB9RFWwTgfwC-DqUcb1yQkXlKmZymC5WnSojPzE6~XAIvCHn~GUEATKeUSXJTm8kL675~wlzgvjRVLxykwp-77tUIuc1PsK3d9gohfk1adoYKV-Cf4aZLlZ7nuG0QqSnHlXyKCHKKSI~Tk~C3ErhCjZMLveWqYP4GFpUMgSzNJksnGv6WkaVKs36Fh9t5POOElX5R6TUy4WvlMMIX5nreE6JMAAM6AwodkJEMbjQhEZ-0Vc1ZxAxVzvq-ulOs07oDCXUA__'/>
       <iframe className='w-full absolute top-0 mx-auto h-56' src="https://lottie.host/embed/0da7cdef-c2b4-4db8-b586-20a2de0ed4fe/ObO2fFzp9O.json"></iframe>

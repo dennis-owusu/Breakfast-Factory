@@ -54,7 +54,7 @@ const ClientCart = () => {
       <p className='hidden'>jnbsdjnv</p>
     </div>
     <div className='absolute bg-white  top-3 rounded-3xl w-full border-gray-500 z-50 pb-[8rem] h-full'>
-        <button className='text-white bg-[#FA9302] py-[14px] m-5 px-4 rounded-full' onClick={()=>handleBack()}><TiArrowBackOutline className='w-5 h-5'/></button>
+        <button className=' bg-[#E5E5E5] py-[14px] m-5 px-4 rounded-full' onClick={()=>handleBack()}><TiArrowBackOutline className='w-5 h-5'/></button>
     <div className='flex justify-between items-center mt-5 mx-3 gap-3'>
             <button className='bg-[#FA9302] border-[#FA9302] py-3 flex justify-center items-center gap-1 text-sm text-white px-5 rounded-3xl'>Most <span>Popular</span></button>
             <button className='border-2 border-[#FA9302] py-3 flex justify-center items-center gap-1 text-sm px-5 rounded-3xl'>Under <p>8GHS</p></button>
@@ -89,9 +89,9 @@ const ClientCart = () => {
     }}>+</button>
                 </div>
                 <img className='md:w-28 w-36 mr-2 rounded-3xl h-32' src={item.productImage} alt={item.productName} />
-                <div className='flex items-center flex-col'>
+                <div className='flex flex-col'>
                   <p className='text-xl font-normal mb-1'>{item.productName}</p>
-                  <p className=' mb-1 bg-[#FA9302] py-0 px-4 rounded-3xl text-white'>₵{item.productPrice}</p>
+                  <p className=' bg-[#FA9302] h-7 w-16 text-center px- rounded-3xl text-white'>₵{item.productPrice}</p>
                 </div>
                 </div>
                

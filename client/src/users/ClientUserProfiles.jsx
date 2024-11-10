@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { TiArrowBackOutline } from 'react-icons/ti'
 
 const ClientUserProfiles = () => {
     const {currentUser} = useSelector((state) => state.user)
@@ -15,7 +16,7 @@ const ClientUserProfiles = () => {
     const navigate = useNavigate()
 
     const [clientUsersData, setClientUsersData] = useState([])
-    console.log(clientUsersData)
+    
 
 
     const logoutClientUsers = async () =>{
@@ -98,6 +99,10 @@ const ClientUserProfiles = () => {
         }
         fetchAllClientUsers()
     }, [])
+
+    const handleBack = () => {
+      navigate(-1); // Goes back to the previous page
+    };
   return (
 
     loading ?
@@ -111,7 +116,8 @@ const ClientUserProfiles = () => {
 </div>
     </div>
 :
-    <div className='flex flex-col min-h-screen justify-center items-center'>
+    <div className='flex flex-col min-h-screen justify-center relative items-center'>
+    <button className='absolute top-0 left-3 bg-[#E5E5E5] py-[14px] m-5 px-4 rounded-full' onClick={()=>handleBack()}><TiArrowBackOutline className='w-5 h-5'/></button>
         <div className=' rounded-full'>
             <img className='w-28 h-28 rounded-full' src={currentUser.profilePicture}/>
         </div>
