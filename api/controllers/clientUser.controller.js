@@ -73,7 +73,7 @@ export const updateClient = async (req, res, next) => {
       next(error);
     }
   };
-
+  
   export const logout = (req, res, next) => {
     try {
       res

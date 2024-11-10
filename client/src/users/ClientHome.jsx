@@ -168,7 +168,7 @@ const ClientHome = () => {
     }
 }
 useEffect(() => {
-  if (currentUser.phoneNumber === null || currentUser.phoneNumber.length < 10) {
+  if (currentUser.phoneNumber === null || currentUser.phoneNumber?.length < 10) {
     setOpenModal(true);
   }else{
     setOpenModal(false);
