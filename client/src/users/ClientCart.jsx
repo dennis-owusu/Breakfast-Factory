@@ -63,7 +63,7 @@ const ClientCart = () => {
 
         {/* Items */}
 
-        <div className='bg-white mt-10 shadow-lg max-w-[95%] mx-auto'>
+        <div className='bg-white mt-10 shadow-md max-w-[95%] mx-auto'>
           {cart.map((item) => (
             <div className='flex justify-between relative max-w-[95%] p-3 mt-5 mx-auto rounded-xl shadow-md items-center' key={item._id}>
               <div className='flex items-center justify-center gap-10'>
