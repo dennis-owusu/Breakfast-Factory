@@ -133,7 +133,7 @@ const ClientHome = () => {
                 position: 'top-right'
             })
         }
-        if(formData.phoneNumber.length < 0){
+        if(formData.phoneNumber.length < 10){
           return toast.error('Please enter a correct number',{
             position: 'top-right'
           })
