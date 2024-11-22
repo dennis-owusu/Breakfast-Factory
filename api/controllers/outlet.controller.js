@@ -4,7 +4,6 @@ import { errorHandler } from "../utils/error.js";
 import jwt from 'jsonwebtoken'
 
 
-
 export const outletSignup = async(req, res, next) =>{
     
     const {name, email, password, userType} = req.body; 
