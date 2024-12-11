@@ -1,6 +1,5 @@
 
 import { useState } from 'react'
-import { FaAngleDown } from 'react-icons/fa6'
 import { TiArrowBackOutline } from 'react-icons/ti'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -54,7 +53,7 @@ const ClientFeedback = () => {
                 })
             }
         } catch (error) {
-            console.error(error)
+            
             toast.error('Something went wrong!', {
                 position: 'top-center',
             })
