@@ -2,14 +2,64 @@
 import { useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa6'
 import { TiArrowBackOutline } from 'react-icons/ti'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 const ClientFeedback = () => {
+    const {currentUser} = useSelector((state) => state.user)
     const navigate = useNavigate()
+    const [formData, setFormData] = useState({
+        name: currentUser?.name || '',
+        email: currentUser?.email || '',
+        message: ''
+    })
+    console.log(formData)
 
     const handleBack = () => {
         navigate(-1)
     }
+
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.id]:e.target.value})
+    }
+    const handleFeedbackSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            
+            const feedbackData = {
+                name: currentUser?.name,
+                email: currentUser?.email,
+                message: formData.message,
+            }
+    
+            const res = await fetch('/api/route/feedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(feedbackData),
+            })
+    
+            const data = await res.json()
+    
+            if (res.ok) {
+                toast.success('Feedback sent successfully', {
+                    position: 'top-center',
+                })
+                setFormData({ ...formData, message: '' }) // Clear the message field
+            } else {
+                toast.error(data.message || 'Error sending feedback', {
+                    position: 'top-center',
+                })
+            }
+        } catch (error) {
+            console.error(error)
+            toast.error('Something went wrong!', {
+                position: 'top-center',
+            })
+        }
+    }
+    
 
     const [loading, setLoading] = useState(false)
   return (
@@ -36,10 +86,10 @@ const ClientFeedback = () => {
 
         <div className='bg-[#FA9302] relative max-w-96 mx-auto mt-14 h-[18rem] rounded-3xl'>
             <p className='text-center text-white text-[20px]'>Enter Feedback</p>
-            <div className='flex flex-col justify-center gap-5 items-center'>
-                <textarea type='text' className='px-20 outline-none border-none mt-6 rounded-3xl pb-24 top-10 placeholder:text-center' placeholder='Type here'/>
+            <form onSubmit={handleFeedbackSubmit} className='flex flex-col justify-center gap-5 items-center'>
+                <textarea onChange={handleChange} type='text' id='message' className='px-20 outline-none border-none mt-6 rounded-3xl pb-24 top-10 placeholder:text-center' placeholder='Type here'/>
             <button className='w-56 mx-auto flex justify-center items-center rounded-3xl bg-black text-white bottom-4 py-3'>Submit</button>
-            </div>
+            </form>
         </div>
 {/* images */}
         <div className='bg-[#F7F7F7] mt-5 py-10 px-10 mx-5 rounded-3xl'>

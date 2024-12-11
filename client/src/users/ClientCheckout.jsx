@@ -268,7 +268,7 @@ const ClientCheckout = () => {
       <div className='relative mt-8'>
           <h3 className='text-xl mt-20 font-medium flex ml-6' style={{fontFamily:'Montserrat', fontSize:'22px'}}>Checkout</h3>
 
-        <img className='h-44 mt-5 w-full object-cover' src='https://s3-alpha-sig.figma.com/img/6181/fb65/222e7c5b069cece6a952a8f2fc666472?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dXTib65l8HIHPgvHFFE0v42LvXaXjfWWvWai51Do-x3RBKlYlbhdUTdtuxPq1OVyEC4boz9ndqErIuKSJ9xqkQ5AAh2C-9~6GfsM2HiYn5M8iee-lssWdbeF9iYMnLGKS~etOJqbVHuzAH23Nh2T5eLgkEDXB7vzf~6m0HDyTfBzqgcGYb8ooxQLlrU6Ecw8oswql6ZfyW3DzyqJQAWONbc-J8u3EHEZieYCg03GDSrD5vp6Q8sw4Ld4B7VwAFHAn-q9T9Lyv~5dEcu83hDT4zg6lkyevmFOE2EqWwr6VCpE3~P1XcqXoIa52Z7ftJ7zutAb1x3uHHgUXaOr8EQHSA__'/>
+        <img className='h-44 mt-5 w-full object-cover' src='https://s3-alpha-sig.figma.com/img/6181/fb65/222e7c5b069cece6a952a8f2fc666472?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mvspSv~vAGUXwzOk3EnqsgLjM9PSo3lAbKy~l7WF7GuTwhD8oFSymEVL8JK3NbxQstlTMfZIWJth-RobDhuOBq2aSZ0Sxq~-k0BmBK8om7UKmvEHPD0HVDbv9N77pIT9uDblYdUZKNFA1ZyWNyWLlw8iBvSZVeueBSSaPjL8X5HlyspppvGjfH-WAacC05A4JP0FIdHsaWik~bmsHXVjmCkzgPkd-icpfiJisN022a3nadpuLDvLrb87xVJ42lmolxeiRWP-Te0Q4j7zD67wL3dhSy0gPRZgXk2axOiVHTdskumKGNPJ3SfLxbebUq38Jt6rLfd9tWhrVD6S~eQn8g__'/>
       <iframe className='w-full absolute top-0 mx-auto h-56' src="https://lottie.host/embed/0da7cdef-c2b4-4db8-b586-20a2de0ed4fe/ObO2fFzp9O.json"></iframe>
         </div>
         <div className='flex justify-between w-[356px] items-center mx-auto mt-7 bg-[#F7F7F7] py-3 px-5 rounded-3xl'>
