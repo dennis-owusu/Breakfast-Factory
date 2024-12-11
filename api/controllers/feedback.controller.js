@@ -5,7 +5,7 @@ import { errorHandler } from "../utils/error.js"
 export const submitFeedback = async (req, res, next) =>{
 
     const {name, email, message} = req.body
-
+ 
     try {
         
         if(!name || !email){

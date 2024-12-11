@@ -4,6 +4,7 @@ import { FaAngleDown } from 'react-icons/fa6'
 import { TiArrowBackOutline } from 'react-icons/ti'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const ClientFeedback = () => {
     const {currentUser} = useSelector((state) => state.user)
@@ -71,7 +72,7 @@ const ClientFeedback = () => {
   <span className='span'></span>
   <span className='span'></span>
   <span className='span'></span>
-  <span className='span'></span>
+  <span className='span'></span> 
 </div>
     </div>
 :
