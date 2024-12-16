@@ -16,7 +16,7 @@ export const submitFeedback = async (req, res, next) =>{
             email,
             message
         })
-        await newFeedback.save()
+        await newFeedback.save() 
         res.status(200).json(newFeedback)
     } catch (error) {
         next(error)

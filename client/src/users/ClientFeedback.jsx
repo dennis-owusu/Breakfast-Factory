@@ -24,7 +24,7 @@ const ClientFeedback = () => {
     }
     const handleFeedbackSubmit = async (e) => {
         e.preventDefault()
-        try {
+        try { 
             
             const feedbackData = {
                 name: currentUser?.name,

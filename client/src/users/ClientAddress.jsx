@@ -1,9 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const ClientAddress = () => {
 
     const [loading, setLoading] = useState(false)
+
+    const navigate = useNavigate()
   return (
 
     loading ?
@@ -55,7 +58,7 @@ const ClientAddress = () => {
                 <button className='bg-[#FA9302] text-white py-3 px-6 rounded-3xl'>Blocks</button>
                 <button className='bg-[#FA9302] text-white py-3 px-6 rounded-3xl'>Others</button>
             </div>
-            <button className='mt-7 w-full bg-[#FA9302] text-white rounded-[5px] py-3 '>Confirm Address</button>
+            <button onClick={()=>navigate('/checkout')} className='mt-7 w-full bg-[#FA9302] text-white rounded-[5px] py-3 '>Confirm Address</button>
             <button className='mt-7 w-full bg-[#EDEDED] rounded-[5px] py-3 '>Cancel</button>
         </form>
     </div>
