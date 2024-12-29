@@ -7,7 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://breakfast-factory-1.onrender.com'
+        target: 'https://breakfast-factory-1.onrender.com',
+        changeOrigin: true, // Adjust the origin of the host header to the target
+        rewrite: (path) => path.replace(/^\/api/, ''),
       }
     }
   },
