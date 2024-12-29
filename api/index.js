@@ -12,8 +12,10 @@ import productLogRoute from './routes/productlog.route.js'
 import clientUserRoute from './routes/clientUser.route.js'
 import feedbackRoute from './routes/feedback.route.js'
 import path from 'path';
-/* import paystackRoute from './routes/paystack.route.js' */ 
 import outletRoute from './routes/outlet.route.js'
+
+
+
 dotenv.config() 
   
 const PORT = 3000  
