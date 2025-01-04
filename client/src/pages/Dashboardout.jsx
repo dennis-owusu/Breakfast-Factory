@@ -43,6 +43,7 @@ import OutletTransaction from "./OutletTransaction"
 import { IoCartOutline } from "react-icons/io5";
 import SellProduct from "@/admin/SellProduct"
 import CartItems from "@/admin/CartItems"
+import Cart from "@/admin/out-cart"
 import { MdOutlineSell } from "react-icons/md"
 
 const Dashboardout = () => {
@@ -435,7 +436,7 @@ toast.error(error.message)
       {/* posts... */}
       {tab === 'category' && <OutletCategory/>}
       {tab === 'sell' && <SellProduct/>}
-      {tab === 'cart-items' && <CartItems/>}
+      {tab === 'cart-items' && <Cart/>}
       {/* users */}
       {/* comments  */}
       {/* dashboard comp */}
