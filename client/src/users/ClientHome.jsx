@@ -204,7 +204,7 @@ useEffect(() => {
         })
       }
 
-  const activeClass = 'text-[#FA9302]'; // Style for active icon
+  const activeClass = 'text-[#cc0000]'; // Style for active icon
   const baseClass = 'text-white';
 
   return (
@@ -225,7 +225,7 @@ useEffect(() => {
         <section className='bg-white py-5 rounded-b-3xl shadow-md'>
 
         <div className='flex mt-5 justify-between mx-5 items-center'>
-            <div className='bg-[#FA9302] w-10 h-10 py-2 rounded-full'>
+            <div className='bg-[#cc0000] w-10 h-10 py-2 rounded-full'>
             <IoMdSettings onClick={()=> setOpenModal(true)} className='text-white mx-auto w-6 h-6'/>
             </div>
             <div>
@@ -234,13 +234,13 @@ useEffect(() => {
             </div>
             <div onClick={()=>(navigate('/feedback'))} className='relative bg-[#D9D9D9] px-3 py-3 rounded-full'>
             <MdFeedback className='w-6 h-6'/>
-            <div className='bg-[#FA9302] absolute -right-0 -top-1 py-2 px-2 rounded-full'></div>
+            <div className='bg-[#cc0000] absolute -right-0 -top-1 py-2 px-2 rounded-full'></div>
             </div>
         </div>
         <div className='mx-auto flex mt-5'>
             <input onClick={()=>navigate('/search')} type='search' placeholder='Search' className='w-[348px] h-[54px] border-none outline-none mx-auto rounded-xl py-3 bg-[#E5E5E5]'/>
         </div>
-        <div className='mx-auto py-5 w-[348px] px-2 flex h-[54px] bg-[#FA9302] rounded-xl text-white mt-5'>
+        <div className='mx-auto py-5 w-[348px] px-2 flex h-[54px] bg-[#cc0000] rounded-xl text-white mt-5'>
             <p className='text-sm flex gap-2 items-center'>Delivery is 70% <FaCheckSquare className='rounded-[100%] font-semibold text-[#fff]'/> cheaper</p>
         </div>
         </section>
@@ -286,12 +286,12 @@ useEffect(() => {
                                 </div>
                                 <div className='flex justify-center text-lg space-x-5 items-center'>
                                     <p className='montserrat font-medium'>{product.productName}</p>
-                                    <MdFavoriteBorder className='text-[#FA9302]'/>
+                                    <MdFavoriteBorder className='text-[#cc0000]'/>
                                 </div>
 
                                     <div className='flex justify-between gap-7 items-center'>
                                         <p className='montserrat font-semibold text-[12px]'>GHS {product.productPrice}</p>
-                                        <button className='py-1 rounded-3xl px-2 max-w-full bg-[#FA9302] text-sm text-white'  onClick={()=>{
+                                        <button className='py-1 rounded-3xl px-2 max-w-full bg-[#cc0000] text-sm text-white'  onClick={()=>{
                             if(product.numberOfProductsAvailable === 0){
                               toast.error('Product not available')
                             }else{
@@ -310,9 +310,9 @@ useEffect(() => {
         <div className='w-full  mx-auto flex justify-center items-center'>
 
         <div className="flex bottom-10 justify-around fixed mt-4 w-[90%] mx-auto self-center h-[52px] items-center bg-black text-white py-3 rounded-3xl">
-     <div className='flex flex-col items-center text-[#FA9302]'>
+     <div className='flex flex-col items-center text-[#cc0000]'>
       <HiOutlineHome
-        className={`w-[25px] h-[25px] ${activeIcon === 'home' ? 'text-[#FA9302]' : ''}`}
+        className={`w-[25px] h-[25px] ${activeIcon === 'home' ? 'text-[#cc0000]' : ''}`}
         onClick={() => {
             handleIconClick('home')
             navigate('/home')
@@ -333,7 +333,7 @@ useEffect(() => {
 </svg>
 <p className='text-sm'>Catalog</p>
 </div>
-<div className={`relative  ${activeIcon === 'bag' ? 'text-[#FA9302]' : ''}` }>
+<div className={`relative  ${activeIcon === 'bag' ? 'text-[#cc0000]' : ''}` }>
 
       <MdOutlineShoppingBag
         className={`w-[25px] h-[25px] `}
@@ -349,7 +349,7 @@ useEffect(() => {
         }
       />
       <p className='text-sm'>Cart</p>
-       <p className="absolute top-[-3px] right-[-7px] bg-[#FA9302] rounded-full py-[9px] text-xs px-[9px] text-white w-4 h-4 flex items-center justify-center">{getTotalQuantity() || 0}</p>
+       <p className="absolute top-[-3px] right-[-7px] bg-[#cc0000] rounded-full py-[9px] text-xs px-[9px] text-white w-4 h-4 flex items-center justify-center">{getTotalQuantity() || 0}</p>
 </div>
 <div onClick={()=>navigate('/profiles')} className={`flex flex-col items-center ${activeIcon === 'profile' ? activeClass : baseClass}`}>
 
