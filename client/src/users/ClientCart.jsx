@@ -56,9 +56,9 @@ const ClientCart = () => {
     <div className='absolute bg-white  top-3 rounded-3xl w-full border-gray-500 z-50 pb-[8rem] h-full'>
         <button className=' bg-[#E5E5E5] py-[14px] m-5 px-4 rounded-full' onClick={()=>handleBack()}><TiArrowBackOutline className='w-5 h-5'/></button>
     <div className='flex justify-between items-center mt-5 mx-3 gap-3'>
-            <button className='bg-[#FA9302] border-[#FA9302] py-3 flex justify-center items-center gap-1 text-sm text-white px-5 rounded-3xl'>Most <span>Popular</span></button>
-            <button className='border-2 border-[#FA9302] py-3 flex justify-center items-center gap-1 text-sm px-5 rounded-3xl'>Under <p>8GHS</p></button>
-            <button className='border-2 border-[#FA9302] py-3 flex justify-center items-center gap-1 text-sm px-5 rounded-3xl'>Combo <p>Deals</p></button>
+            <button className='bg-[#cc0000] border-[#cc0000] py-3 flex justify-center items-center gap-1 text-sm text-white px-5 rounded-3xl'>Most <span>Popular</span></button>
+            <button className='border-2 border-[#cc0000] py-3 flex justify-center items-center gap-1 text-sm px-5 rounded-3xl'>Under <p>8GHS</p></button>
+            <button className='border-2 border-[#cc0000] py-3 flex justify-center items-center gap-1 text-sm px-5 rounded-3xl'>Combo <p>Deals</p></button>
         </div>
 
         {/* Items */}
@@ -68,11 +68,11 @@ const ClientCart = () => {
             <div className='flex justify-between relative max-w-[95%] p-3 mt-5 mx-auto rounded-xl shadow-md items-center' key={item._id}>
               <div className='flex items-center justify-center gap-10'>
                 <div className='flex justify-center items-center'>
-                <p className='bg-[#FA9302] absolute right-3 top-3 text-white rounded-full py-2 px-2' onClick={()=>handleRemoveItem(item)}><MdDelete className='w-5 h-5'/></p>
+                <p className='bg-[#cc0000] absolute right-3 top-3 text-white rounded-full py-2 px-2' onClick={()=>handleRemoveItem(item)}><MdDelete className='w-5 h-5'/></p>
                 <div className='absolute flex gap-3 items-center bottom-3 right-3'>
-                    <button className='bg-[#FA9302] text-white text-lg font-medium rounded-full py-1 px-[13px]' onClick={() => dispatch(decrementQuantity(item._id))}>-</button>
+                    <button className='bg-[#cc0000] text-white text-lg font-medium rounded-full py-1 px-[13px]' onClick={() => dispatch(decrementQuantity(item._id))}>-</button>
                     <p>{item.quantity}</p>
-                    <button className='bg-[#FA9302] text-white text-lg font-medium rounded-full py-1 px-[10px]'  onClick={() => {
+                    <button className='bg-[#cc0000] text-white text-lg font-medium rounded-full py-1 px-[10px]'  onClick={() => {
       if (item.numberOfProductsAvailable === 0) {
         toast.error('Product not available', { position: 'top-right' });
         return;
@@ -91,7 +91,7 @@ const ClientCart = () => {
                 <img className='md:w-28 w-36 mr-2 rounded-3xl h-32' src={item.productImage} alt={item.productName} />
                 <div className='flex flex-col'>
                   <p className='text-xl font-normal mb-1'>{item.productName}</p>
-                  <p className=' bg-[#FA9302] h-7 w-16 text-center px- rounded-3xl text-white'>₵{item.productPrice}</p>
+                  <p className=' bg-[#cc0000] h-7 w-16 text-center px- rounded-3xl text-white'>₵{item.productPrice}</p>
                 </div>
                 </div>
                

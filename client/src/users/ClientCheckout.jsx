@@ -273,13 +273,13 @@ const ClientCheckout = () => {
         </div>
         <div className='flex justify-between w-[356px] items-center mx-auto mt-7 bg-[#F7F7F7] py-3 px-5 rounded-3xl'>
           <p className='font-semibold'>Delivery Time</p>
-          <p className='flex items-center'><FaCheckSquare className='rounded-[100%] font-semibold text-[#FA9302]'/>10 Minutes</p>
+          <p className='flex items-center'><FaCheckSquare className='rounded-[100%] font-semibold text-[#cc0000]'/>10 Minutes</p>
         </div>
-        <div className='flex mt-4 justify-between w-[356px] bg-[#FA9302] mx-auto items-center rounded-2xl px-5 h-[87px]'>
+        <div className='flex mt-4 justify-between w-[356px] bg-[#cc0000] mx-auto items-center rounded-2xl px-5 h-[87px]'>
           <div className='flex gap-2 items-center'>
             <div className='py-3 px-3 bg-white rounded-full'>
 
-            <HiOutlineShoppingCart className='text-[#FA9302] w-[24px] h-[24px]'/>
+            <HiOutlineShoppingCart className='text-[#cc0000] w-[24px] h-[24px]'/>
             </div>
             <div className='flex flex-col '>
 
@@ -310,12 +310,12 @@ const ClientCheckout = () => {
        
               <div className='flex mt-10 justify-between items-center'>
               <p className=' font-semibold'>Total Items</p>
-              <p className='bg-[#FA9302] text-white py-1 px-3 rounded-2xl'>{getTotalQuantity()}</p>
+              <p className='bg-[#cc0000] text-white py-1 px-3 rounded-2xl'>{getTotalQuantity()}</p>
               </div>
         <hr className='mt-5 mb-5 border-t-[1px] border-[#999696] bg-[#999696]'/>
         <div className='flex justify-between mt-6'>
           <p className='font-semibold'>Total Amount</p>
-          <p className='bg-[#FA9302] text-white py-1 px-3 rounded-2xl'>{totalPrice.toFixed(2)}</p>
+          <p className='bg-[#cc0000] text-white py-1 px-3 rounded-2xl'>{totalPrice.toFixed(2)}</p>
         </div>
         </div>
 
