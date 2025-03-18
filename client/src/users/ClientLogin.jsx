@@ -52,7 +52,7 @@ const ClientLogin = () => {
                 setLoading(false)
           }
       } catch (error) { 
-          toast.error('Something went wrong... check your internet connection', {
+          toast.error(error.message, {
               position: 'top-right'
             })
             setLoading(false)
