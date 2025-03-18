@@ -8,11 +8,12 @@ import categoryRoute from './routes/categories.route.js'
 import transactionRoute from './routes/transaction.route.js'
 import userRoute from './routes/user.route.js'
 import cashRoute from './routes/cash.route.js'
-import productLogRoute from './routes/productlog.route.js'
+import productLogRoute from './routes/productlog.route.js'  
 import clientUserRoute from './routes/clientUser.route.js'
 import feedbackRoute from './routes/feedback.route.js'
 import path from 'path';
 import outletRoute from './routes/outlet.route.js'
+import addressRoute from './routes/address.route.js'
 
 
 
@@ -39,12 +40,13 @@ mongoose.connect(process.env.BREAKFAST_MONGO_URI).then(()=>{
 app.use('/api/route', productRoute) 
 app.use('/api/route', categoryRoute)
 app.use('/api/route', transactionRoute)
-app.use('/api/auth', userRoute)
+app.use('/api/auth', userRoute) 
 app.use('/api/auth', outletRoute)
-app.use('/api/route', cashRoute)
+app.use('/api/route', cashRoute) 
 app.use('/api/route', productLogRoute)
 app.use('/api/route', clientUserRoute)
 app.use('/api/route', feedbackRoute)
+app.use('/api/route', addressRoute)
 /* app.use('/api/route', paystackRoute) */   
 
 app.use(express.static(path.join(__dirname, '/client/dist')));

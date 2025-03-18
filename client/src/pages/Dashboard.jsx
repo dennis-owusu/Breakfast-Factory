@@ -46,7 +46,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { signoutSuccess } from "../redux/userSlice"
 /* import { IoCartOutline } from "react-icons/io5"; */
 import CartItems from "../admin/CartItems"
-import Orders from "@/admin/orders"
+import Orders from '../admin/orders'
 
 const Dashboard = () => {
   const dispatch = useDispatch()

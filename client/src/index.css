@@ -52,6 +52,17 @@
   }
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @layer base {
     :root {
       --background: 0 0% 100%;
@@ -122,4 +133,162 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Product card hover effects */
+.product-card {
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(250, 147, 2, 0.3);
+}
+
+/* Product card image container */
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image-container img {
+  transform: scale(1.05);
+}
+
+/* Product badges */
+.product-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.badge-new {
+  background-color: #22c55e;
+  color: white;
+}
+
+.badge-sale {
+  background-color: #ef4444;
+  color: white;
+}
+
+.badge-limited {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.badge-bestseller {
+  background-color: #FA9302;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(250, 147, 2, 0.3);
+}
+
+.bestseller-ribbon {
+  position: absolute;
+  top: 10px;
+  left: -5px;
+  padding: 4px 8px 4px 12px;
+  background-color: #FA9302;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%);
+}
+
+/* Product section containers */
+.product-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.featured-section {
+  background: linear-gradient(to right, #ffeed9, #fff8ef);
+}
+
+.new-arrivals-section {
+  background-color: #f8fafc;
+}
+
+.best-sellers-section {
+  background: linear-gradient(to right, #fff8e6, #fff1d6);
+  border: 1px solid rgba(250, 147, 2, 0.15);
+  box-shadow: 0 4px 12px rgba(250, 147, 2, 0.08);
+}
+
+/* Category pill active state */
+.category-pill {
+  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.category-pill.active {
+  background-color: #FA9302;
+  color: white;
+  transform: scale(1.05);
+  font-weight: 500;
+}
+
+/* Product group headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.section-link {
+  color: #FA9302;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.section-link:hover {
+  text-decoration: underline;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
   

@@ -25,8 +25,8 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table";
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
@@ -35,7 +35,7 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/
 import { app } from "../firebase.config";
 import { CircularProgressbar } from "react-circular-progressbar";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../components/ui/select";
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../components/ui/dialog";
 
 
 const Product = () => {
@@ -162,7 +162,7 @@ const Product = () => {
     setFormData({ ...formData, category: value });
   };
 
-
+   
 
   useEffect(() => {
     const fetchAllProducts = async () => {

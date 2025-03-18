@@ -15,7 +15,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import '../index.css'
 import { useDispatch, useSelector } from "react-redux";
 import { signInFailure, signInSuccess } from "../redux/userSlice";
-import OutletOAuth from "@/components/OutletOAuth";
+import OutletOAuth from "../components/OutletOAuth";
 
 
 const OutletSignIn = () => {

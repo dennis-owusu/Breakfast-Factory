@@ -14,7 +14,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../index.css'
 import { useDispatch } from "react-redux";
-import { signInFailure, signInSuccess } from "@/redux/userSlice";
+import { signInFailure, signInSuccess } from "../redux/userSlice";
 import OAuth from "../components/OAuth";
 
 
