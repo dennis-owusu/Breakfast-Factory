@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   build: {
-    minify: 'terser',
+    minify: true, // Using default minifier instead of explicitly requiring terser
     terserOptions: {
       compress: {
         drop_console: true,
