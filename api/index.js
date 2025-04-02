@@ -34,15 +34,15 @@ app.use(cookieParser())
 
 
 mongoose.connect(process.env.BREAKFAST_MONGO_URI).then(()=>{
-  console.log('MongoDB connected')
+  console.log('MongoDB connected') 
 })
-
+ 
 app.use('/api/route', productRoute) 
 app.use('/api/route', categoryRoute)
-app.use('/api/route', transactionRoute)
+app.use('/api/route', transactionRoute) 
 app.use('/api/auth', userRoute) 
 app.use('/api/auth', outletRoute)
-app.use('/api/route', cashRoute) 
+app.use('/api/route', cashRoute)  
 app.use('/api/route', productLogRoute)
 app.use('/api/route', clientUserRoute)
 app.use('/api/route', feedbackRoute)

@@ -13,6 +13,7 @@ import {
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import OAuth from '../components/OAuth';
+import AppleAuth from '../components/AppleAuth';
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false)
@@ -100,6 +101,9 @@ const SignUp = () => {
         </form>
           <Button variant="outline" className="w-full mt-3">
             <OAuth/>
+          </Button>
+          <Button variant="outline" className="w-full mt-3">
+            <AppleAuth/>
           </Button>
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}

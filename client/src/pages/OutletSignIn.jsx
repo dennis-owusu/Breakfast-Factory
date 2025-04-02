@@ -16,6 +16,7 @@ import '../index.css'
 import { useDispatch, useSelector } from "react-redux";
 import { signInFailure, signInSuccess } from "../redux/userSlice";
 import OutletOAuth from "../components/OutletOAuth";
+import OutletAppleAuth from "../components/OutletAppleAuth";
 
 
 const OutletSignIn = () => {
@@ -109,6 +110,9 @@ const OutletSignIn = () => {
         </form>
           <Button variant="outline" className="w-full mt-3">
             <OutletOAuth/>
+          </Button>
+          <Button variant="outline" className="w-full mt-3">
+            <OutletAppleAuth/>
           </Button>
       </CardContent>
     </Card>

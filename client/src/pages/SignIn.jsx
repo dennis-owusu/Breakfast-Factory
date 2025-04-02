@@ -16,6 +16,7 @@ import '../index.css'
 import { useDispatch } from "react-redux";
 import { signInFailure, signInSuccess } from "../redux/userSlice";
 import OAuth from "../components/OAuth";
+import AppleAuth from "../components/AppleAuth";
 
 
 const SignIn = () => {
@@ -108,6 +109,9 @@ const SignIn = () => {
         </form>
           <Button variant="outline" className="w-full mt-3">
             <OAuth/>
+          </Button>
+          <Button variant="outline" className="w-full mt-3">
+            <AppleAuth/>
           </Button>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account?{" "}

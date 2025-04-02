@@ -212,7 +212,7 @@ useEffect(() => {
 
   return (
     
-    loading ?
+   /*  loading ?
     <div className='flex overflow-x-hidden justify-center items-center min-h-screen'>
       <div className='div'>
         <span className='span'></span>
@@ -221,7 +221,7 @@ useEffect(() => {
         <span className='span'></span>
       </div>
     </div>
-    :
+    : */
     
     <main className='overflow-x-hidden relative bg-[#E5E5E5]'>
       {/* Header Section with improved layout */}

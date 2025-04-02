@@ -5,8 +5,6 @@ import Dashboard from "./pages/Dashboard"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
 import Dashboardout from "./pages/Dashboardout"
-import Blank from "./pages/Blank"
-import Blank2 from "./pages/Blank2"
 import Category from "./admin/Category"
 import Outlet from "./admin/Outlet"
 import Product from "./admin/Product"
@@ -62,8 +60,6 @@ function App() {
         <Route element={<AdminPrivateRoute/>}>
         <Route path="/dashboard" element={<Dashboard/>}/>
         </Route>
-        <Route path="/Blank" element={<Blank/>}/>
-        <Route path="/Blank2" element={<Blank2/>}/>
         <Route path="/Outlet" element={<Dashboardout/>}/>
         <Route path="/login" element={<SignIn/>}/>
         <Route path="/sign-up" element={<SignUp/>}/>
